@@ -1,0 +1,31 @@
+source $XDG_CONFIG_HOME/mutt/muttrc
+source $XDG_CONFIG_HOME/mutt/pass
+
+# me
+set realname = "Karolis Koncevičius"
+set from = "karolis.koncevicius@gmc.vu.lt"
+set envelope_from = yes
+
+# personal account info
+set imap_user = $my_vu_user
+set imap_pass = $my_vu_pass
+set folder = imaps://exchange.vu.lt/
+set smtp_url = smtp://"$my_vu_user"@exchange.vu.lt:587/
+set smtp_pass = $imap_pass
+set smtp_authenticators = 'gssapi:login'
+set mail_check = 6000
+set timeout = 15
+
+# default mailboxes
+set spoolfile = "=INBOX"
+set record = "=Sent Items"
+set postponed = "=Drafts"
+set trash = "=Deleted Items"
+# set save folder
+save-hook . '=Saved Items'
+
+# mailboxes
+set imap_check_subscribed
+
+# refresh the mailbox to make sure everything is updated
+exec refresh

@@ -1,0 +1,36 @@
+_muttaliases() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(cut -d' ' -f2 $XDG_CONFIG_HOME/mutt/aliases)
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+}
+
+_mutt() {
+  local cur prev words cword
+  _init_completion -n =+! || return
+
+  case $cur in
+    -*)
+      COMPREPLY=( $(compgen -W '-A -a -b -c -e -f -F -H -i -m -n -p -Q -R -s -v -x -y -z -Z -h' -- "$cur") )
+      return
+      ;;
+    *)
+      case $prev in
+        -*[afFHi])
+          return
+          ;;
+        -*[emQshpRvyzZ])
+          return
+          ;;
+        -*A)
+          _muttaliases "$cur"
+          return
+          ;;
+        *)
+          _muttaliases "$cur"
+          return
+          ;;
+      esac
+      ;;
+  esac
+} &&
+complete -F _mutt -o default mutt muttvu muttgmail muttspam

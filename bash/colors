@@ -1,0 +1,19 @@
+# fg 202020 # foreground
+# bg f9f7f3 # background
+#
+# 0  555d64 # black
+# 1  db6c6c # red
+# 2  77bb77 # green
+# 3  e4af64 # yellow
+# 4  0096c8 # blue
+# 5  ae8fc1 # purple
+# 6  896724 # cyan
+# 7  b6ad9a # white
+# 8  8a9da7 # bright black
+# 9  f88379 # bright red
+# 10 a8ce93 # bright green
+# 11 ead042 # bright yellow
+# 12 b2d1e5 # bright blue
+# 13 cc99cc # bright purple
+# 14 c59534 # bright cyan
+# 15 e9e0d3 # bright white

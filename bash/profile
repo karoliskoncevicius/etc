@@ -1,0 +1,55 @@
+################################################################################
+############################ ENVIRONMENT VARIABLES #############################
+################################################################################
+
+#################################### PATHS #####################################
+
+export XDG_BIN_HOME=$HOME/base/bin/
+export XDG_CONFIG_HOME=$HOME/base/etc/
+export XDG_DATA_HOME=$HOME/base/var/
+export XDG_LIB_HOME=$HOME/base/var/
+export XDG_CACHE_HOME=$HOME/base/var/cache
+
+MYPATH="$XDG_BIN_HOME"
+[ -d "/usr/local/bin" ]                && MYPATH="$MYPATH:/usr/local/bin"
+[ -d "/usr/local/sbin" ]               && MYPATH="$MYPATH:/usr/local/sbin"
+[ -d "/opt/local/bin" ]                && MYPATH="$MYPATH:/opt/local/bin"
+[ -d "/opt/local/sbin" ]               && MYPATH="$MYPATH:/opt/local/sbin"
+[ -d "/opt/local/libexec/gnubin" ]     && MYPATH="$MYPATH:/opt/local/libexec/gnubin"
+export PATH=$MYPATH:$PATH
+
+MYMANPATH="$HOME/base/man"
+[ -d "/usr/local/share/man" ]          && MYMANPATH="$MYMANPATH:/usr/local/share/man"
+[ -d "/usr/local/man" ]                && MYMANPATH="$MYMANPATH:/usr/local/man"
+[ -d "/opt/local/man" ]                && MYMANPATH="$MYMANPATH:/opt/local/man"
+[ -d "/opt/local/share/man" ]          && MYMANPATH="$MYMANPATH:/opt/local/share/man"
+[ -d "/opt/local/libexec/gnubin/man" ] && MYMANPATH="$MYMANPATH:/opt/local/libexec/gnubin/man"
+export MANPATH=$MYMANPATH:$MANPATH
+
+############################## PROGRAM LOCATIONS ###############################
+
+# inputrc
+export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
+
+# screen
+export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+
+# pass
+export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
+
+# r
+export R_PROFILE_USER=$XDG_CONFIG_HOME/r/Rprofile
+export R_LIBS_USER=$XDG_DATA_HOME/R/libraries/
+
+################################# PREFERENCES ##################################
+
+export EDITOR=nvim
+
+# locales
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# user Info
+export FULLNAME="Karolis Koncevičius"
+export EMAIL="Karolis@Koncevicius.lt"
+

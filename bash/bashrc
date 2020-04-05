@@ -1,0 +1,62 @@
+################################################################################
+##################################### INIT #####################################
+################################################################################
+
+# if not running interactively - don't do anything
+[ -z "$PS1" ] && return
+
+# create directory for .bash_history
+mkdir -p $XDG_DATA_HOME/bash/
+
+################################################################################
+################################### SETTINGS ###################################
+################################################################################
+
+# bash history file
+export HISTFILE=$XDG_DATA_HOME/bash/bash_history
+# unlimited history
+HISTSIZE= HISTFILESIZE=
+# remove duplicate entries from history
+export HISTCONTROL="erasedups:ignoreboth"
+# make "history n" command to print instead of executing the command
+shopt -s histverify
+# make Bash append rather than overwrite the history on disk
+shopt -s histappend
+# save multi-line commands as one command
+shopt -s cmdhist
+# extended pattern matching (allows to use ! for negation)
+shopt -s extglob
+
+################################################################################
+#################################### SOURCE ####################################
+################################################################################
+
+# completions
+if [ -f "/opt/local/etc/profile.d/bash_completion.sh" ]; then
+  . "/opt/local/etc/profile.d/bash_completion.sh"
+elif [ -f "/etc/bash_completion.sh" ]; then
+  . "/etc/bash_completion.sh"
+fi
+# custom completions
+for f in "$XDG_CONFIG_HOME/bash/completions/"*; do
+   . "$f"
+done
+
+# dircolors
+eval `dircolors $XDG_CONFIG_HOME/bash/dircolors`
+
+# load prompt settings
+if [ -f "$XDG_CONFIG_HOME/bash/prompt" ]; then
+  . "$XDG_CONFIG_HOME/bash/prompt"
+fi
+
+# load aliases
+if [ -f "$XDG_CONFIG_HOME/bash/aliases" ]; then
+  . "$XDG_CONFIG_HOME/bash/aliases"
+fi
+
+# load functions
+if [ -f "$XDG_CONFIG_HOME/bash/functions" ]; then
+  . "$XDG_CONFIG_HOME/bash/functions"
+fi
+

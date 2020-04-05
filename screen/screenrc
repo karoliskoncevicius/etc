@@ -1,0 +1,22 @@
+term screen-256color
+startup_message off
+defscrollback 10000
+altscreen on
+maptimeout 5
+
+hardstatus alwayslastline "%{+r kW} %-w%{+ub}%n:%t%{-}%+w"
+shelltitle local
+
+shell -$SHELL
+
+# start windows from 1 (not from 0)
+screen 1
+bind c screen 1
+bind 0 select 10
+
+escape ^@^@
+
+bind j focus down
+bind k focus up
+bind l focus right
+bind h focus left

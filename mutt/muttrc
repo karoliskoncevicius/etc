@@ -1,0 +1,57 @@
+set hostname="PMW"
+
+# colorscheme
+source $XDG_CONFIG_HOME/mutt/colors
+source $XDG_CONFIG_HOME/mutt/keybinds
+
+# alias file
+set alias_file = $XDG_CONFIG_HOME/mutt/aliases
+source $alias_file
+
+## save copies of sent mail to $record
+set copy=yes
+
+# reversed sorting
+set sort=reverse-threads
+set sort_browser=date
+set sort_aux=last-date-received
+set strict_threads=yes
+set collapse_all
+unset collapse_unread
+
+# if you have more than a few emails, you *really* want this
+set header_cache = $XDG_CACHE_HOME/mutt/headercache
+set message_cachedir = $XDG_CACHE_HOME/mutt/messagecache
+
+# general settings
+set   nomark_old      # don't mark messages as old
+unset menu_scroll     # scroll menu a page on last line
+set   narrow_tree     # narrow threading trees
+set   pager_stop      # don't go to next message at end of message
+set   text_flowed=yes # better line wrappings
+set   pager_stop      # don't jump to the next messages
+set   reflow_wrap=0   # allow maximum terminal width for rewrapping
+set   wrap=0          # don't wrap
+set   pager_stop=yes  # don't jump to the next email on pager
+set   auto_tag=yes    # commands automatically apply to tagged messages
+
+# index page format
+set date_format="%Y-%m-%d %H:%M"
+set index_format="%4C  %D %zs %-22.22n  %2M  %s %> %y"
+
+# sidebar settings
+set sidebar_visible
+set sidebar_format="%B %?F?!? %* %?N?[%N]? %S"
+
+set sidebar_width=24
+set sidebar_short_path
+set sidebar_delim_chars="/"
+
+# call viewhtmlmsg from macro
+macro index,pager B "\
+<enter-command> set my_pipe_decode=\$pipe_decode my_wait_key=\$wait_key \
+pipe_decode=no wait_key=no<enter>\
+<pipe-message> viewhtmlmsg<enter>\
+<enter-command> set pipe_decode=\$my_pipe_decode wait_key=\$my_wait_key \
+&my_pipe_decode &my_wait_key<enter>\
+" "view HTML in browser"

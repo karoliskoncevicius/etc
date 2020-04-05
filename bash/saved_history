@@ -1,0 +1,3 @@
+pandoc -t beamer --pdf-engine=xelatex -V theme:metropolis -o file.pdf file.md
+aws-2.7 s3 sync s3://omri-test-bucket test_library
+aws-2.7 s3 sync s3://omri-test-bucket/Lockett_AdjustStart Lockett_AdjustStart

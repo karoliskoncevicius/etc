@@ -1,0 +1,31 @@
+# Moving around
+bind attach,browser,index  g   noop
+bind attach,browser,index  gg  first-entry
+bind attach,browser,index  G   last-entry
+bind attach,browser,index  K   previous-page
+bind attach,browser,index  J   next-page
+bind pager                 g   noop
+bind pager                 gg  top
+bind pager                 G   bottom
+bind pager                 k   previous-line
+bind pager                 j   next-line
+bind pager                 K   previous-page
+bind pager                 J   next-page
+
+# Attachements/Aliases
+bind pager,index           v   noop
+bind pager,index           A   create-alias
+bind pager,index           a   view-attachments
+
+# Other
+bind browser,pager,index   N   search-opposite
+bind pager,index           R   group-reply
+bind pager,index           i   edit-label
+bind index                 za  collapse-thread
+bind index                 zA  collapse-all
+bind index                 *   flag-message
+
+# arrows to scroll email and don't jump to the next one
+bind pager <down> next-line
+bind pager <up> previous-line
+

@@ -1,0 +1,27 @@
+source $XDG_CONFIG_HOME/mutt/muttrc
+source $XDG_CONFIG_HOME/mutt/pass
+
+# me
+set realname = "Necronomania"
+set from = $my_spam_user
+set envelope_from = yes
+
+# personal account info
+set imap_user = $my_spam_user
+set imap_pass = $my_spam_pass
+set folder = imaps://imap.gmail.com/
+set smtp_url = smtps://"$my_spam_user"@smtp.gmail.com:465/
+set smtp_pass = $imap_pass
+set smtp_authenticators = 'gssapi:login'
+
+# default mailboxes
+set spoolfile = "=INBOX"
+set record = "=[Gmail]/Sent Mail"
+set postponed = "=[Gmail]/Drafts"
+set trash = "=[Gmail]/Trash"
+
+# mailboxes
+set imap_check_subscribed
+
+# refresh the mailbox to make sure everything is updated
+exec refresh
