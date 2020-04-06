@@ -14,6 +14,3 @@ alias muttspam='mutt -F $XDG_CONFIG_HOME/mutt/mutt_spam'
 # make R silent on startup
 alias R='R --quiet --no-save --no-restore'
 
-# in ssh forward X by default
-alias ssh='ssh -Y'
-

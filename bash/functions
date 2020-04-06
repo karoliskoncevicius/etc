@@ -8,6 +8,13 @@ cg() {
   cd "$dir"
 }
 
+# function to set screen name based on host and reset on exit
+function ssh() {
+  echo -e '\033k'@$1'\033\\'
+  /usr/bin/ssh -Y "$@"
+  echo -e '\033k'local'\033\\'
+}
+
 # manual history mode
 export SAVEDHISTFILE="$XDG_CONFIG_HOME/bash/saved_history"
 hmode () {
