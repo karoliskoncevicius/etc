@@ -8,11 +8,11 @@ cg() {
   cd "$dir"
 }
 
-# function to set screen name based on host and reset on exit
+# # function to set screen name based on host and reset on exit
 function ssh() {
-  echo -e '\033k'@$1'\033\\'
-  /usr/bin/ssh -Y "$@"
-  echo -e '\033k'local'\033\\'
+  printf "\033k@$1\033\\"
+  /opt/local/bin/ssh -Y "$@"
+  printf "\033klocal\033\\"
 }
 
 # manual history mode
