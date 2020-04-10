@@ -103,12 +103,12 @@ get_git_info () {
 
 PS1="\
 \$(is_on_git && \
-  echo -n \"\[\033[38;5;7m\]\$(get_git_info)\" && \
+  echo -n \"\[\033[38;5;8m\]\$(get_git_info)\" && \
   echo -n \"\[\033[38;5;1m\]\$(get_git_status) \")\
 \[\033[1;38;5;0m\]:: \[\033[00m\]"
 
 PS2="\
 \$(is_on_git && \
-  echo -n \"\[\033[38;5;7m\]\$(get_git_info)\" && \
+  echo -n \"\[\033[38;5;8m\]\$(get_git_info)\" && \
   echo -n \"\[\033[38;5;1m\]\$(get_git_status) \")\
 \[\033[1;38;5;0m\]++ \[\033[00m\]"

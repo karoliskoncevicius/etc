@@ -1,4 +1,4 @@
-# Term Section
+# term section
 TERM Eterm
 TERM ansi
 TERM color-xterm
@@ -69,211 +69,214 @@ TERM xterm-color
 TERM xterm-debian
 TERM xterm-termite
 
-# Special files
-NORMAL 00;38;5;0  # global default
-FILE   00;38;5;0  # normal file
-DIR    01         # directory
-EXEC   00;38;5;1  # executable
-LINK   07;38;5;2  # symbolic link. ('target'=the color for the file pointed to)
-ORPHAN 07;38;5;1  # symlink to nonexistent file
-FIFO   07;38;5;12 # pipe
-SOCK   07;38;5;10 # socket
-DOOR   07;38;5;10 # door
-BLK    07;38;5;3  # block device driver
-CHR    07;38;5;3  # character device driver
+# special files
+NORMAL 00;38;5;0            # global default
+FILE   00;38;5;0            # normal file
+DIR    01                   # directory
+EXEC   00;38;5;1            # executable
+LINK   07;38;5;2            # symbolic link. ('target'=the color for the file pointed to)
+ORPHAN 07;38;5;1            # symlink to nonexistent file
+FIFO   07;38;5;12           # pipe
+SOCK   07;38;5;10           # socket
+DOOR   07;38;5;10           # door
+BLK    07;38;5;3            # block device driver
+CHR    07;38;5;3            # character device driver
 OTHER_WRITABLE 04;01        # directory with dwrxwrxwrx permissions
 STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 
-# Archives or compressed
-.tar    00;38;5;5
-.tgz    00;38;5;5
-.arj    00;38;5;5
-.taz    00;38;5;5
-.lzh    00;38;5;5
-.lzma   00;38;5;5
-.tlz    00;38;5;5
-.txz    00;38;5;5
-.zip    00;38;5;5
-.z      00;38;5;5
-.Z      00;38;5;5
-.dz     00;38;5;5
-.gz     00;38;5;5
-.lz     00;38;5;5
-.xz     00;38;5;5
-.bz2    00;38;5;5
-.bz     00;38;5;5
-.tbz    00;38;5;5
-.tbz2   00;38;5;5
-.tz     00;38;5;5
-.deb    00;38;5;5
-.rpm    00;38;5;5
-.jar    00;38;5;5
-.rar    00;38;5;5
-.ace    00;38;5;5
-.zoo    00;38;5;5
-.cpio   00;38;5;5
-.7z     00;38;5;5
-.rz     00;38;5;5
-.apk    00;38;5;5
-.gem    00;38;5;5
+# archives or compressed
+.tar    04;38;5;0
+.tgz    04;38;5;0
+.arj    04;38;5;0
+.taz    04;38;5;0
+.lzh    04;38;5;0
+.lzma   04;38;5;0
+.tlz    04;38;5;0
+.txz    04;38;5;0
+.zip    04;38;5;0
+.z      04;38;5;0
+.Z      04;38;5;0
+.dz     04;38;5;0
+.gz     04;38;5;0
+.lz     04;38;5;0
+.xz     04;38;5;0
+.bz2    04;38;5;0
+.bz     04;38;5;0
+.tbz    04;38;5;0
+.tbz2   04;38;5;0
+.tz     04;38;5;0
+.deb    04;38;5;0
+.rpm    04;38;5;0
+.jar    04;38;5;0
+.rar    04;38;5;0
+.ace    04;38;5;0
+.zoo    04;38;5;0
+.cpio   04;38;5;0
+.7z     04;38;5;0
+.rz     04;38;5;0
+.apk    04;38;5;0
+.gem    04;38;5;0
 
-# Image formats
-.jpg    00;38;5;11
-.JPG    00;38;5;11
-.jpeg   00;38;5;11
-.gif    00;38;5;11
-.bmp    00;38;5;11
-.pbm    00;38;5;11
-.pgm    00;38;5;11
-.ppm    00;38;5;11
-.tga    00;38;5;11
-.xbm    00;38;5;11
-.xpm    00;38;5;11
-.tif    00;38;5;11
-.tiff   00;38;5;11
-.png    00;38;5;11
-.PNG    00;38;5;11
-.svg    00;38;5;11
-.svgz   00;38;5;11
-.mng    00;38;5;11
-.pcx    00;38;5;11
-.dl     00;38;5;11
-.xcf    00;38;5;11
-.xwd    00;38;5;11
-.yuv    00;38;5;11
-.cgm    00;38;5;11
-.emf    00;38;5;11
-.eps    00;38;5;11
-.CR2    00;38;5;11
-.ico    00;38;5;11
+# encrypted
+.gpg    04;38;5;0
 
-# Video
-.mov    01;38;5;3
-.MOV    01;38;5;3
-.mpg    01;38;5;3
-.mpeg   01;38;5;3
-.m2v    01;38;5;3
-.mkv    01;38;5;3
-.ogm    01;38;5;3
-.mp4    01;38;5;3
-.m4v    01;38;5;3
-.mp4v   01;38;5;3
-.vob    01;38;5;3
-.qt     01;38;5;3
-.nuv    01;38;5;3
-.wmv    01;38;5;3
-.asf    01;38;5;3
-.rm     01;38;5;3
-.rmvb   01;38;5;3
-.flc    01;38;5;3
-.avi    01;38;5;3
-.fli    01;38;5;3
-.flv    01;38;5;3
-.gl     01;38;5;3
-.m2ts   01;38;5;3
-.divx   01;38;5;3
-.webm   01;38;5;3
+# image formats
+.jpg    00;38;5;8
+.JPG    00;38;5;8
+.jpeg   00;38;5;8
+.gif    00;38;5;8
+.bmp    00;38;5;8
+.pbm    00;38;5;8
+.pgm    00;38;5;8
+.ppm    00;38;5;8
+.tga    00;38;5;8
+.xbm    00;38;5;8
+.xpm    00;38;5;8
+.tif    00;38;5;8
+.tiff   00;38;5;8
+.png    00;38;5;8
+.PNG    00;38;5;8
+.svg    00;38;5;8
+.svgz   00;38;5;8
+.mng    00;38;5;8
+.pcx    00;38;5;8
+.dl     00;38;5;8
+.xcf    00;38;5;8
+.xwd    00;38;5;8
+.yuv    00;38;5;8
+.cgm    00;38;5;8
+.emf    00;38;5;8
+.eps    00;38;5;8
+.CR2    00;38;5;8
+.ico    00;38;5;8
 
-# Audio
-.aac    00;38;5;3
-.au     00;38;5;3
-.flac   00;38;5;3
-.mid    00;38;5;3
-.midi   00;38;5;3
-.mka    00;38;5;3
-.mp3    00;38;5;3
-.mpc    00;38;5;3
-.ogg    00;38;5;3
-.ra     00;38;5;3
-.wav    00;38;5;3
-.m4a    00;38;5;3
+# video
+.mov    00;38;5;8
+.MOV    00;38;5;8
+.mpg    00;38;5;8
+.mpeg   00;38;5;8
+.m2v    00;38;5;8
+.mkv    00;38;5;8
+.ogm    00;38;5;8
+.mp4    00;38;5;8
+.m4v    00;38;5;8
+.mp4v   00;38;5;8
+.vob    00;38;5;8
+.qt     00;38;5;8
+.nuv    00;38;5;8
+.wmv    00;38;5;8
+.asf    00;38;5;8
+.rm     00;38;5;8
+.rmvb   00;38;5;8
+.flc    00;38;5;8
+.avi    00;38;5;8
+.fli    00;38;5;8
+.flv    00;38;5;8
+.gl     00;38;5;8
+.m2ts   00;38;5;8
+.divx   00;38;5;8
+.webm   00;38;5;8
 
-# Documents/Readables
-.pdf  00;38;5;4
-.PDF  00;38;5;4
-.html 00;38;5;4
-.HTML 00;38;5;4
-.doc  00;38;5;4
-.docx 00;38;5;4
-.ppt  00;38;5;4
-.pptx 00;38;5;4
-.odt  00;38;5;4
-.odp  00;38;5;4
-.epub 00;38;5;4
+# audio
+.aac    00;38;5;8
+.au     00;38;5;8
+.flac   00;38;5;8
+.mid    00;38;5;8
+.midi   00;38;5;8
+.mka    00;38;5;8
+.mp3    00;38;5;8
+.mpc    00;38;5;8
+.ogg    00;38;5;8
+.ra     00;38;5;8
+.wav    00;38;5;8
+.m4a    00;38;5;8
 
-# Source code files
-.pl     00;38;5;8
-.PL     00;38;5;8
-.py     00;38;5;8
-.pm     00;38;5;8
-.tt     00;38;5;8
-.yml    00;38;5;8
-.sql    00;38;5;8
-.css    00;38;5;8
-.js     00;38;5;8
-.sh     00;38;5;8
-.R      00;38;5;8
-.r      00;38;5;8
-.hs     00;38;5;8
-.rb     00;38;5;8
-.cc     00;38;5;8
-.c      00;38;5;8
-.lua    00;38;5;8
-.vim    00;38;5;8
-.m      00;38;5;8
+# documents/readables
+.pdf  00;38;5;8
+.PDF  00;38;5;8
+.html 00;38;5;8
+.HTML 00;38;5;8
+.doc  00;38;5;8
+.docx 00;38;5;8
+.ppt  00;38;5;8
+.pptx 00;38;5;8
+.odt  00;38;5;8
+.odp  00;38;5;8
+.epub 00;38;5;8
 
-# Libraries/Literates/Documentations
-.1      01;38;5;8
-.h      01;38;5;8
-.hh     01;38;5;8
-.tex    01;38;5;8
-.bib    01;38;5;8
-.Rd     01;38;5;8
-.rmd    01;38;5;8
-.Rmd    01;38;5;8
+# source code files
+.pl     00;38;5;0
+.PL     00;38;5;0
+.py     00;38;5;0
+.pm     00;38;5;0
+.tt     00;38;5;0
+.yml    00;38;5;0
+.sql    00;38;5;0
+.css    00;38;5;0
+.js     00;38;5;0
+.sh     00;38;5;0
+.R      00;38;5;0
+.r      00;38;5;0
+.hs     00;38;5;0
+.rb     00;38;5;0
+.cc     00;38;5;0
+.c      00;38;5;0
+.lua    00;38;5;0
+.vim    00;38;5;0
+.m      00;38;5;0
 
-# Special sources/configs
-*Makefile  04;38;5;8
-*Snakefile 04;38;5;8
-*do        04;38;5;8
-*Doxyfile  04;38;5;8
-*config    04;38;5;8
-.conf      04;38;5;8
-.cfg       04;38;5;8
-.yml       04;38;5;8
+# libraries/literates/documentations
+.1      00;38;5;0
+.h      00;38;5;0
+.hh     00;38;5;0
+.tex    00;38;5;0
+.bib    00;38;5;0
+.Rd     00;38;5;0
+.rmd    00;38;5;0
+.Rmd    00;38;5;0
 
-# Plain text
-.txt 00;38;5;0
-.md  00;38;5;0
+# special sources/configs
+*Makefile  00;38;5;0
+*Snakefile 00;38;5;0
+*do        00;38;5;0
+*Doxyfile  00;38;5;0
+*config    00;38;5;0
+.conf      00;38;5;0
+.cfg       00;38;5;0
+.yml       00;38;5;0
 
-# Other readables
-.xlm   00;38;5;6
-.xls   00;38;5;6
-.xlsx  00;38;5;6
-.csv   00;38;5;6
-.tsv   00;38;5;6
-.Rds   00;38;5;6
-.rds   00;38;5;6
-.RDS   00;38;5;6
-.Rdata 00;38;5;6
-.RData 00;38;5;6
-.RDATA 00;38;5;6
-.sav   00;38;5;6
-.mat   00;38;5;6
-.json  00;38;5;6
-.bed   00;38;5;6
+# special interest
+*README           00;38;5;0
+*README.txt       00;38;5;0
+*README.md        00;38;5;0
+*README.markdown  00;38;5;0
+*TODO             00;38;5;0
+*todo             00;38;5;0
+*NOTE             00;38;5;0
+*note             00;38;5;0
 
-# Special interest
-*README           04;38;5;0
-*README.txt       04;38;5;0
-*README.md        04;38;5;0
-*README.markdown  04;38;5;0
-*TODO             04;38;5;0
-*todo             04;38;5;0
-*NOTE             04;38;5;0
-*note             04;38;5;0
+# other readables
+.xlm   00;38;5;8
+.xls   00;38;5;8
+.xlsx  00;38;5;8
+.csv   00;38;5;8
+.tsv   00;38;5;8
+.Rds   00;38;5;8
+.rds   00;38;5;8
+.RDS   00;38;5;8
+.Rda   00;38;5;8
+.rda   00;38;5;8
+.RDA   00;38;5;8
+.Rdata 00;38;5;8
+.RData 00;38;5;8
+.RDATA 00;38;5;8
+.sav   00;38;5;8
+.mat   00;38;5;8
+.json  00;38;5;8
+.bed   00;38;5;8
+.idat  00;38;5;8
 
-# "unimportant" files (logs and backups)
+# "unimportant" files
 .log        00;38;5;15
 .bak        00;38;5;15
 .aux        00;38;5;15
