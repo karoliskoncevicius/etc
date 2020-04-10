@@ -14,7 +14,7 @@ hi Normal           ctermbg=NONE ctermfg=NONE cterm=NONE
 hi Title            ctermbg=NONE ctermfg=NONE cterm=BOLD
 hi Comment          ctermbg=NONE ctermfg=7    cterm=NONE
 hi SpecialComment   ctermbg=NONE ctermfg=8    cterm=NONE
-hi Todo             ctermbg=NONE ctermfg=1    cterm=BOLDUNDERLINE
+hi Todo             ctermbg=NONE ctermfg=1    cterm=BOLD
 
 hi LineNr           ctermbg=NONE ctermfg=7    cterm=NONE
 hi CursorLineNr     ctermbg=NONE ctermfg=7    cterm=NONE
@@ -46,9 +46,9 @@ hi DiffChange       ctermbg=15   ctermfg=NONE cterm=NONE
 hi DiffText         ctermbg=11   ctermfg=NONE cterm=NONE
 
 hi Pmenu            ctermbg=15   ctermfg=NONE cterm=NONE
-hi PmenuSel         ctermbg=8    ctermfg=NONE cterm=NONE
+hi PmenuSel         ctermbg=7    ctermfg=NONE cterm=NONE
 hi PmenuSbar        ctermbg=15   ctermfg=NONE cterm=NONE
-hi PmenuThumb       ctermbg=8    ctermfg=NONE cterm=NONE
+hi PmenuThumb       ctermbg=7    ctermfg=NONE cterm=NONE
 
 hi SpellBad         ctermbg=NONE ctermfg=1    cterm=UNDERCURL
 hi SpellCap         ctermbg=NONE ctermfg=1    cterm=UNDERCURL
@@ -101,10 +101,10 @@ hi link markdownHeadingDelimiter Title
 hi link markdownCodeDelimiter    SpecialComment
 
 " rmarkdown
-hi link rmdCodeDelim       SpecialComment
-hi link rmdRChunkDelim     SpecialComment
-hi link rmdInlineDelim     SpecialComment
-hi link rmdYamlBlockDelim  SpecialComment
+hi link rmdCodeDelim       WarningMsg
+hi link rmdRChunkDelim     WarningMsg
+hi link rmdInlineDelim     WarningMsg
+hi link rmdYamlBlockDelim  WarningMsg
 
 hi link SpecialChar        Normal
 hi link SpecialKey         SpecialComment
