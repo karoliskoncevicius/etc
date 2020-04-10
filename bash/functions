@@ -8,7 +8,7 @@ cg() {
   cd "$dir"
 }
 
-# # function to set screen name based on host and reset on exit
+# function to set screen name based on host and reset on exit
 function ssh() {
   printf "\033k@$1\033\\"
   /opt/local/bin/ssh -Y "$@"

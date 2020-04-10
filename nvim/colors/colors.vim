@@ -11,11 +11,10 @@ set background=dark
 hi Cursor           ctermbg=7    ctermfg=NONE cterm=NONE
 
 hi Normal           ctermbg=NONE ctermfg=NONE cterm=NONE
-hi Title            ctermbg=NONE ctermfg=NONE cterm=BOLDUNDERLINE
+hi Title            ctermbg=NONE ctermfg=NONE cterm=BOLD
 hi Comment          ctermbg=NONE ctermfg=7    cterm=NONE
-hi SpecialComment   ctermbg=NONE ctermfg=7    cterm=BOLD
-hi Todo             ctermbg=NONE ctermfg=4    cterm=BOLDUNDERLINE
-hi Directory        ctermbg=NONE ctermfg=6    cterm=NONE
+hi SpecialComment   ctermbg=NONE ctermfg=8    cterm=NONE
+hi Todo             ctermbg=NONE ctermfg=1    cterm=BOLDUNDERLINE
 
 hi LineNr           ctermbg=NONE ctermfg=7    cterm=NONE
 hi CursorLineNr     ctermbg=NONE ctermfg=7    cterm=NONE
@@ -27,9 +26,9 @@ hi FoldColumn       ctermbg=NONE ctermfg=4    cterm=NONE
 
 hi Underlined       ctermbg=NONE ctermfg=NONE cterm=UNDERLINE
 
-hi Visual           ctermbg=12   ctermfg=NONE cterm=NONE
+hi Visual           ctermbg=15   ctermfg=NONE cterm=NONE
 hi VisualNOS        ctermbg=NONE ctermfg=NONE cterm=UNDERLINE
-hi MatchParen       ctermbg=NONE ctermfg=3    cterm=NONE
+hi MatchParen       ctermbg=NONE ctermfg=9    cterm=BOLD
 hi IncSearch        ctermbg=11   ctermfg=NONE cterm=NONE
 hi Search           ctermbg=11   ctermfg=NONE cterm=NONE
 hi CursorColumn     ctermbg=15   ctermfg=NONE cterm=NONE
@@ -39,17 +38,17 @@ hi StatusLine       ctermbg=NONE ctermfg=8    cterm=NONE
 hi StatusLineNC     ctermbg=NONE ctermfg=8    cterm=NONE
 hi VertSplit        ctermbg=NONE ctermfg=8    cterm=NONE
 hi WildMenu         ctermbg=NONE ctermfg=0    cterm=REVERSE
-hi ModeMsg          ctermbg=NONE ctermfg=4    cterm=NONE
+hi ModeMsg          ctermbg=NONE ctermfg=8    cterm=BOLD
 
 hi DiffAdd          ctermbg=10   ctermfg=NONE cterm=NONE
-hi DiffDelete       ctermbg=1    ctermfg=NONE cterm=NONE
-hi DiffChange       ctermbg=15   ctermfg=NONE cterm=UNDERLINE
+hi DiffDelete       ctermbg=9    ctermfg=9    cterm=NONE
+hi DiffChange       ctermbg=15   ctermfg=NONE cterm=NONE
 hi DiffText         ctermbg=11   ctermfg=NONE cterm=NONE
 
-hi Pmenu            ctermbg=15   ctermfg=0    cterm=NONE
-hi PmenuSel         ctermbg=NONE ctermfg=0    cterm=REVERSE
-hi PmenuSbar        ctermbg=7    ctermfg=NONE cterm=NONE
-hi PmenuThumb       ctermbg=0    ctermfg=NONE cterm=NONE
+hi Pmenu            ctermbg=15   ctermfg=NONE cterm=NONE
+hi PmenuSel         ctermbg=8    ctermfg=NONE cterm=NONE
+hi PmenuSbar        ctermbg=15   ctermfg=NONE cterm=NONE
+hi PmenuThumb       ctermbg=8    ctermfg=NONE cterm=NONE
 
 hi SpellBad         ctermbg=NONE ctermfg=1    cterm=UNDERCURL
 hi SpellCap         ctermbg=NONE ctermfg=1    cterm=UNDERCURL
@@ -61,9 +60,9 @@ hi WarningMsg       ctermbg=NONE ctermfg=1    cterm=NONE
 hi MoreMsg          ctermbg=NONE ctermfg=4    cterm=NONE
 hi Question         ctermbg=NONE ctermfg=4    cterm=NONE
 
-hi TabLine          ctermbg=15   ctermfg=0    cterm=NONE
-hi TabLineSel       ctermbg=NONE ctermfg=0    cterm=REVERSE
-hi TabLineFill      ctermbg=15   ctermfg=0    cterm=NONE
+hi TabLine          ctermbg=7    ctermfg=NONE cterm=NONE
+hi TabLineSel       ctermbg=7    ctermfg=NONE cterm=BOLDUNDERLINE
+hi TabLineFill      ctermbg=7    ctermfg=NONE cterm=NONE
 
 hi Error            ctermbg=NONE ctermfg=1    cterm=REVERSE
 hi Ignore           ctermbg=NONE ctermfg=NONE cterm=NONE
@@ -83,8 +82,12 @@ hi clear Boolean
 hi clear String
 hi clear Delimiter
 hi clear Conceal
+hi clear Directory
 
 " Links ------------------------------------------------------------------------
+
+" vim
+hi link Directory  Title
 
 " R
 hi link rOKeyword  SpecialComment
@@ -109,15 +112,21 @@ hi link Conceal            SpecialComment
 hi link NonText            Comment
 hi link Whitespace         Comment
 
+" html
+hi link htmlTag             Title
+hi link htmlEndTag          Title
+hi link htmlTagName         Title
+hi link htmlSpecialTagName  Title
+
 " quick fix window
 hi link QuickFixLine       Visual
-hi link qfFileName         Directory
+hi link qfFileName         Title
 hi link qfLineNr           Comment
 hi link qfSeparator        Comment
 
 " vim help
 hi link helpSectionDelim   Comment
-hi link helpHyperTextJump  Directory
+hi link helpHyperTextJump  Title
 hi link helpExample        Comment
 hi link helpNote           Todo
 hi link helpHyperOption    SpecialComment
