@@ -10,9 +10,9 @@ cg() {
 
 # function to set screen name based on host and reset on exit
 function ssh() {
-  printf "\033k@$1\033\\"
-  /opt/local/bin/ssh -Y "$@"
-  printf "\033klocal\033\\"
+  echo -e '\033k'@$1'\033\\' >&2
+  command ssh -Y "$@"
+  echo -e '\033k'local'\033\\' >&2
 }
 
 # manual history mode
