@@ -7,8 +7,8 @@
   if (Sys.getenv("TERM") %in% c("xterm-256color", "screen-256color")) {
     if("colorout" %in% utils::installed.packages()[,1])
     colorout::setOutputColors(normal=NA, index=7, negnum=NA, zero=NA,
-                              number=NA, date=NA, string=NA, const=7,
-                              infinite=1, true=2, false=1, stderror=8,
+                              number=NA, date=NA, string=NA, const=4,
+                              infinite=4, true=2, false=1, stderror=8,
                               warn=1, error=c(7,NA,1), verbose=FALSE
                               )
   }
