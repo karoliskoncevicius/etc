@@ -1,62 +1,12 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""" INTRO """""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" This vimrc follows a rather strange philosophy aiming to make vim commands
-" more consistent and intuitive.
-
-" It tries to follow these rules (emphasis on TRIES):
-" 1) consistent behaviour with window sizes and placements
-" 2) consistent behaviour between lowercase and uppercase key commands
-" 3) g maps contain various additional operators
-" 4) , maps toggle between different versions of key maps - replaces g
-" 5) z maps work with folds and screen redraw (default)
-" 6) ] and [ moves forwards and backwards between various elements
-" 7) <control> maps in normal mode toggle vim settings
-" 8) <control> maps in insert mode resemble readline
-" 9) <alt> maps work with window splits and file/buffer commands like :w and :q
-" 10) <space> maps work with words/lines under the cursor
-" 11) <localleader> maps work with various lists like :lopen and :find
-" 12) <leader> maps work on more complex commands like those from fugitive
+" INTRO ========================================================================
 
 filetype indent plugin on
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""" UNMAP """""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" disable all g and all ctrl maps
-let g:netrw_nogx = 1 " allows disabling gx
-let s:chars1 = map(range(char2nr('a'), char2nr('x')), 'nr2char(v:val)')
-let s:chars2 = map(range(char2nr('A'), char2nr('Z')), 'nr2char(v:val)')
-let s:chars = s:chars1 + s:chars2
-let s:chars = s:chars+['0','1','2','3','4','5','6','7','8','9','+','-','=','_']
-let s:chars = s:chars+['~','`','!','@','#','$','%','^','&','*','(',')','/','?']
-let s:chars = s:chars+['[',']','{','}','\','\|',':',';','"',"'",'<',">",'.',',']
-
-for char in s:chars
-  execute 'noremap g' . char . ' <nop>'
-  execute 'noremap <c-' . char . '> <nop>'
-endfor
-
-" return gg
-unmap gg
-" return <cr> (for following quickfix/location list items)
-unmap <cr>
-" return <c-z> (for detaching)
-unmap <c-z>
-" return escape <c-[>
-unmap <c-[>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""" SOURCE """"""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SOURCE =======================================================================
 
 runtime snippets.vim
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""" PLUGINS """"""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGINS ======================================================================
 
 call plug#begin('$XDG_DATA_HOME/nvim/plugins')
 
@@ -65,7 +15,6 @@ Plug 'tpope/vim-rsi'
 
 " integration
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 
 " operators
 Plug 'kana/vim-operator-user'
@@ -77,39 +26,20 @@ Plug 'KKPMW/vim-sendtowindow'
 
 " text objects
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-indent'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-lastpat'
-Plug 'glts/vim-textobj-comment'
 
 call plug#end()
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""" PLUGIN SETTINGS """"""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" gitgutter
-let g:gitgutter_enabled = 0       " turned off by default
-let g:gitgutter_max_signs = 5000  " stops working after more than 5000 changes
-let g:gitgutter_map_keys = 0      " set no mappings
-nnoremap <silent> <c-g> :GitGutterToggle<cr>
-nnoremap <silent> <c-d> :GitGutterLineHighlightsToggle<cr>
-nmap ]d <Plug>GitGutterNextHunk
-nmap [d <Plug>GitGutterPrevHunk
-let g:gitgutter_sign_added = '●'
-let g:gitgutter_sign_modified = '●'
-let g:gitgutter_sign_removed = '●'
-let g:gitgutter_sign_removed_first_line = '●'
-let g:gitgutter_sign_modified_removed = '●'
+" PLUGIN SETTINGS ==============================================================
 
 " commentary
+nmap gc <nop>
 xmap #  <Plug>Commentary
 nmap #  <Plug>Commentary
 omap #  <Plug>Commentary
 nmap ## <Plug>CommentaryLine
 
 " sendtowindow
-let g:sendtowindow_use_defaults=0
+let g:sendtowindow_use_defaults = 0
 nmap <silent> gl <Plug>SendRight
 xmap <silent> gl <Plug>SendRightV
 nmap <silent> gh <Plug>SendLeft
@@ -147,14 +77,9 @@ xmap <unique> as <Plug>(textobj-sandwich-query-a)
 " replace operator
 map gr <Plug>(operator-replace)
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""" SETTINGS """""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS =====================================================================
 
-let mapleader = "|"
-let maplocalleader = "\\"
-
-"""""""""""""""""""""""""""""""""" BEHAVIOUR """""""""""""""""""""""""""""""""""
+" BEHAVIOUR --------------------------------------------------------------------
 
 set nomodeline        " disable modelines
 set comments=         " Let the filetype take care of comments
@@ -183,7 +108,7 @@ set nowrapscan    " don't continue search at the top
 set breakindent       " break long lines
 set showbreak=\\\\\   " broken lines are indented
 
-set cpoptions-=_       " make cw consistent
+set cpoptions-=_      " make cw consistent
 set inccommand=nosplit
 set diffopt=vertical,filler,internal,algorithm:histogram,indent-heuristic
 
@@ -195,7 +120,6 @@ if !isdirectory(expand(&backupdir))
 endif
 
 let $BASH_ENV="$XDG_CONFIG_HOME/bash/aliases" " location of bash aliases
-
 let g:netrw_home=$XDG_DATA_HOME.'/nvim/netrw' " change location of netrw files
 
 set wildignore+=*.RData,*.Rdata,*.RDS,*.rds        " R objects
@@ -203,7 +127,7 @@ set wildignore+=*.pdf,*.svg,*.jpg,*.png,*.jpeg     " readables
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/* " version control
 set wildignore+=*.DS_Store                         " OSX
 
-"""""""""""""""""""""""""""""""""""" VISUAL """"""""""""""""""""""""""""""""""""
+" VISUAL -----------------------------------------------------------------------
 
 syntax enable          " syntax highlighting
 colorscheme colors     " choose colorscheme
@@ -220,11 +144,9 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set fillchars=stl:-,stlnc:-,fold:·,diff:─,vert:│
 set statusline=%=%f    " only show filename at the end of statusline
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""" MAPS """""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPS =========================================================================
 
-"""""""""""""""""""""""""""""""""""" REMAPS """"""""""""""""""""""""""""""""""""
+" REMAPS -----------------------------------------------------------------------
 
 " no ex-mode
 noremap Q <nop>
@@ -235,13 +157,17 @@ tnoremap <c-[> <c-\><c-n>
 " make Y be consistent with C and D
 noremap Y y$
 
-" always move by virtual lines
-nnoremap k gk
-nnoremap j gj
-xnoremap k gk
-xnoremap j gj
+" make ge more consistent
+onoremap ge :execute "normal! " . v:count1 . "ge<space>"<cr>
+onoremap gE :execute "normal! " . v:count1 . "gE<space>"<cr>
 
-" add moving by lines to jump list.
+" always move by virtual lines
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" add moving by lines to jump list
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 
@@ -278,15 +204,13 @@ vnoremap <silent> J :<c-u>call <sid>Move(0, 1)<cr>
 vnoremap <silent> K :<c-u>call <sid>Move(1, 1)<cr>
 onoremap J V:call <sid>Move(0, 0)<cr>
 onoremap K V:call <sid>Move(1, 0)<cr>
-noremap H g^
-noremap L g_
+noremap  H g^
+noremap  L g_
+noremap  gH g0
+noremap  gL g$
 
 " merge
 noremap M J
-
-" change list
-noremap < g;
-noremap > g,
 
 " increment numbers
 noremap + <c-a>
@@ -300,7 +224,7 @@ nnoremap <tab> <c-o>
 nnoremap <s-tab> <c-i>
 
 " tab in insert mode triggers completions
-inoremap <expr> <tab> TabComplete()
+inoremap <tab> <c-p>
 inoremap <s-tab> <c-n>
 " make enter insert the selected completion item
 inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
@@ -309,97 +233,21 @@ inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
 vnoremap u <nop>
 vnoremap U <nop>
 
-"""""""""""""""""""""""""""""""""""" COMMA """""""""""""""""""""""""""""""""""""
-
-" line undo
-noremap ,u U
-noremap ,U U
-
-" block visual mode
-noremap ,v <c-v>
-onoremap ,v <c-v>
-
-" move to the start/end of line including whitespace
-noremap ,H g0
-noremap ,L g$
-
-" merge lines without adding spaces
-noremap ,M gJ
-
-" start insert mode in the first column
-noremap ,I gI
-" last insert position
-noremap ,i gi
-
-" leave the cursor after the pasted text
-noremap ,p gp
-noremap ,P gP
-
-" yank to system clipboard
-noremap ,y "+y
-noremap ,Y "+y$
-
-" delete to black hole register
-noremap ,d "_d
-noremap ,D "_D
-
-" change to black hole register
-noremap ,c "_c
-noremap ,C "_C
-
-" virtual replace modes
-noremap ,r gr
-noremap ,R gR
-
-"""""""""""""""""""""""""""""""""" OPERATORS """""""""""""""""""""""""""""""""""
-
-" wrap text
-noremap gw gw
-
-" align text
-noremap g= =
-
-" uppercase/lowercase/toggle
-noremap gu gu
-noremap gU gU
-noremap g~ g~
-
-" indent text
-noremap g> >
-noremap g< <
-noremap g>> >>
-noremap g<< <<
-
-" rot text
-noremap g? g?
-
-""""""""""""""""""""""""""""""""""" CONTROL """"""""""""""""""""""""""""""""""""
+" CONTROL ----------------------------------------------------------------------
 
 " commands that toggle settings
 
 " toggle hlsearch
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 
-" toggle number
-nnoremap <silent> <c-n> :set number!<cr>
-
-" toggle relativenumber
-nnoremap <silent> <c-r> :set relativenumber!<cr>
-
 " toggle spell
 nnoremap <silent> <c-s> :set spell!<cr>
-
-" toggle wrap
-nnoremap <silent> <c-w> :set wrap!<cr>
 
 " toggle cursorline/cursorcolumn
 nnoremap <silent> <c-l> :set cursorline!<cr>
 nnoremap <silent> <c-c> :set cursorcolumn!<cr>
 
-" toggle folds
-nnoremap <silent> <c-f> :set foldenable!<cr>
-
-"""""""""""""""""""""""""""""""""""" SPACE """""""""""""""""""""""""""""""""""""
+" SPACE ------------------------------------------------------------------------
 
 " commands for word/line under the cursor
 
@@ -413,69 +261,21 @@ noremap <space>f gf
 noremap <space>] <c-]>
 noremap <space>[ <c-t>
 
-" comment header
-noremap <silent> <space>b :call CommentHeader(0)<cr>
-noremap <silent> <space>B :call CommentHeader(1)<cr>
-
 " go to the first occurrence (definition)
 noremap <space>d [<C-I>
 
-" grep
-nnoremap <space>g :execute "lvimgrep /" . expand("<cword>") . "./%"<cr>
-      \:normal! <c-o><cr><esc>:vert lopen 100<cr>:set nowrap<cr>
-nnoremap <space>G :execute "lvimgrep /" . expand("<cword>") . "./**"<cr>
-      \:normal! <c-o><cr><esc>:vert lopen 100<cr>:set nowrap<cr>
-
 " add word to a search register and highlight
-nnoremap <space>n :keepjumps normal! *<cr>:set hlsearch<cr>
-nnoremap <space>N :keepjumps normal! #<cr>:set hlsearch<cr>
+nnoremap <space>n :keepjumps normal! *#<cr>:set hlsearch<cr>
 
 " spelling suggestions
 nnoremap <space>s z=
 
-"""""""""""""""""""""""""""""""""""" LEADER """"""""""""""""""""""""""""""""""""
-
-" commands
+" LEADER -----------------------------------------------------------------------
 
 " open r terminal
-nnoremap <leader>tr :keepjumps belowright 20split<cr>:terminal<space>R<space><cr><c-\><c-n><c-w>k
+nnoremap \|tr :keepjumps belowright 20split<cr>:terminal<space>R<space><cr><c-\><c-n><c-w>k
 
-""""""""""""""""""""""""""""""""" LOCALLEADER """"""""""""""""""""""""""""""""""
-
-" commands for selecting things
-
-" choose args list
-nnoremap <localleader>a :args<space>
-nnoremap <localleader>A :args<cr>
-
-" choose buffers
-nnoremap <localleader>b :buffer<space>
-nnoremap <localleader>B :ls<cr>:buffer<space>
-
-" open location list
-nnoremap <localleader>l :vert lopen 100<cr> :set nowrap<cr>
-
-" open quickfix list
-nnoremap <localleader>q :vert copen 100<cr> :set nowrap<cr>
-
-" find files (from romainl)
-nnoremap <localleader>f :find *
-nnoremap <localleader>F :find <c-r>=fnameescape(expand('%:p:h')).'/**/*'<cr>
-
-" edit files
-nnoremap <localleader>e :edit<space>
-nnoremap <localleader>E :edit <c-r>=fnameescape(expand('%:p:h'))<cr>
-
-" open command/search windows
-nnoremap <localleader>: q:
-nnoremap <localleader>/ q/
-nnoremap <localleader>? q?
-
-" enter file explorer mode of netrw
-nnoremap <localleader>d :Lexplore!<cr>
-nnoremap <localleader>D :Explore<cr>
-
-""""""""""""""""""""""""""""""""""""" ALT """"""""""""""""""""""""""""""""""""""
+" ALT --------------------------------------------------------------------------
 
 " working with windows
 
@@ -548,7 +348,7 @@ nnoremap <a-N> :enew!<cr>
 nnoremap <a-d> :silent! Bdelete<cr>
 nnoremap <a-D> :silent! Bdelete!<cr>
 
-"""""""""""""""""""""""""""""""""" MOVEMENTS """""""""""""""""""""""""""""""""""
+" MOVEMENTS --------------------------------------------------------------------
 
 " move through jump list
 noremap ]j <c-i>
@@ -588,21 +388,9 @@ noremap [q :cprevious<cr>
 noremap ]Q :clast<cr>
 noremap [Q :cfirst<cr>
 
-" move to R function
-nnoremap <silent> ]f /\w*\s*<-\s*function\s*(<cr>
-vnoremap <silent> ]f /\w*\s*<-\s*function\s*(<cr>
-nnoremap <silent> [f ?\w*\s*<-\s*function\s*(<cr>
-vnoremap <silent> [f ?\w*\s*<-\s*function\s*(<cr>
+" TEXT OBJECTS -----------------------------------------------------------------
 
-" move to small comment header
-nnoremap <silent> ]h :execute '/^' . split(&commentstring, "\\s*%")[0] . "\\{3,40}\\s*\\w.\\{-}"<cr>
-vnoremap <silent> ]h :execute '/^' . split(&commentstring, "\\s*%")[0] . "\\{3,40}\\s*\\w.\\{-}"<cr>
-nnoremap <silent> [h :execute '?^' . split(&commentstring, "\\s*%")[0] . "\\{3,40}\\s*\\w.\\{-}"<cr>
-vnoremap <silent> [h :execute '?^' . split(&commentstring, "\\s*%")[0] . "\\{3,40}\\s*\\w.\\{-}"<cr>
-
-""""""""""""""""""""""""""""""""" TEXT OBJECTS """""""""""""""""""""""""""""""""
-
-" from Kana plugin
+" from kana plugin
 
 " r-code chunk
 call textobj#user#plugin('rchunk', {
@@ -626,21 +414,29 @@ call textobj#user#plugin('rinline', {
 onoremap j <C-v>j
 onoremap k <C-v>k
 
+" entire document
+onoremap ae :<c-u>normal! ggVG<cr>
+vnoremap ae :<c-u>normal! ggVG<cr>
+onoremap ie :<c-u>normal! gg}{VG{}<cr>
+vnoremap ie :<c-u>normal! gg}{VG{}<cr>
+
 " line
 onoremap <silent> <expr> al v:count==0 ? ":<c-u>normal! 0V$h<cr>" : ":<c-u>normal! V" . (v:count) . "jk<cr>"
 vnoremap <silent> <expr> al v:count==0 ? ":<c-u>normal! 0V$h<cr>" : ":<c-u>normal! V" . (v:count) . "jk<cr>"
 onoremap <silent> <expr> il v:count==0 ? ":<c-u>normal! ^vg_<cr>" : ":<c-u>normal! ^v" . (v:count) . "jkg_<cr>"
 vnoremap <silent> <expr> il v:count==0 ? ":<c-u>normal! ^vg_<cr>" : ":<c-u>normal! ^v" . (v:count) . "jkg_h<cr>"
 
-" r function
-onoremap <silent> if :<c-u>call <sid>SelectRFunction("i")<cr>
-onoremap <silent> af :<c-u>call <sid>SelectRFunction("a")<cr>
-vnoremap <silent> if :<c-u>call <sid>SelectRFunction("i")<cr>
-vnoremap <silent> af :<c-u>call <sid>SelectRFunction("a")<cr>
+" searched pattern
+onoremap a/ gn
+vnoremap a/ gn
+onoremap i/ gn
+vnoremap i/ gn
+onoremap a? gN
+vnoremap a? gN
+onoremap i? gN
+vnoremap i? gN
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""" COMMANDS """""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COMMANDS =====================================================================
 
 " get R help
 command! -nargs=1 Rhelp call Rhelp(<f-args>)
@@ -654,13 +450,10 @@ command! -nargs=0 Highlight call Highlight()
 " diff changes with respect to original file
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""" AUTOCOMANDS """"""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" AUTOCOMMANDS =================================================================
 
-"""""""""""""""""""""""""""""""" COLLUMN LIMIT """""""""""""""""""""""""""""""""
-
-augroup collumnLimit
+" collumn limit
+augroup collumn_limit
   autocmd!
   autocmd BufEnter,WinEnter * highlight CollumnLimit ctermbg=15 ctermfg=0
   autocmd BufEnter,WinEnter * if &diff | highlight CollumnLimit ctermbg=NONE ctermfg=NONE | endif
@@ -668,9 +461,7 @@ augroup collumnLimit
   autocmd FileType * match CollumnLimit /\%81v./
 augroup END
 
-"""""""""""""""""""""""""""""""""""""" R """""""""""""""""""""""""""""""""""""""
-
-" Set keywordprg
+" Rhelp
 augroup r_keywordprg
   autocmd!
   autocmd FileType r setlocal keywordprg=:Rhelp
@@ -678,33 +469,19 @@ augroup r_keywordprg
   autocmd FileType rmarkdown setlocal keywordprg=:Rhelp
 augroup END
 
-" No line numbers in terminal
+" no line numbers in terminal
 augroup terminal_line_numbers
   autocmd!
   autocmd TermOpen * setlocal nonumber norelativenumber
 augroup END
 
-""""""""""""""""""""""""""""""""""""" MISC """""""""""""""""""""""""""""""""""""
-
 " jump to last known line when opening files
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup restore_cursor_line
+  autocmd!
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+augroup END
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""" FUNCTIONS """""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""" TAB CHARACTER AND COMPLETION """""""""""""""""""""""""
-
-function! TabComplete()
-    let col = col('.') - 1
-    if !col || (getline('.')[col - 1] !~ '\k' && getline('.')[col - 1] !~ '\f')
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
-
-""""""""""""""""""""""" SHOW SYNTAX HIGHLIGHTING ELEMENT """""""""""""""""""""""
+" FUNCTIONS ====================================================================
 
 function! Highlight()
   for id in synstack(line("."), col("."))
@@ -712,36 +489,10 @@ function! Highlight()
   endfor
 endfunction
 
-"""""""""""""""""""""""""""" CREATE A COMMENT BLOCK """"""""""""""""""""""""""""
-
-function CommentHeader(isBig)
-  let l:width = 80
-  let l:word = getline(".")
-  let l:cs = split(&commentstring, "\\s*%")[0]
-  let l:inserted_word = ' ' . l:word . ' '
-  let l:word_width = strlen(l:inserted_word)
-  let l:length_before = (l:width - l:word_width) / 2
-  let l:hashes_before = repeat(l:cs, l:length_before)
-  let l:hashes_after = repeat(l:cs, l:width - (l:word_width + l:length_before))
-  let l:hash_line = repeat(l:cs, l:width)
-  let l:word_line = l:hashes_before . l:inserted_word . l:hashes_after
-
-  delete
-  if a:isBig
-    :-1put =l:hash_line
-  endif
-  :-1put =l:word_line
-  if a:isBig
-    :-1put =l:hash_line
-  endif
-endfunction
-
-"""""""""""""""""""""""""""""""" DISPLAY R HELP """"""""""""""""""""""""""""""""
-
 function Rhelp(rfunction)
-  if &buftype !=# "nofile"
-    :100vsplit
-  endif
+  " if &buftype !=# "nofile"
+  "   :100vsplit
+  " endif
   enew
   setlocal buftype=nofile
   setlocal bufhidden=delete
@@ -761,30 +512,6 @@ function Rhelp(rfunction)
   silent StripTrailingWhitespace
   :0d
 endfunction
-
-"""""""""""""""""""""""""""""" SELECT R FUNCTION """""""""""""""""""""""""""""""
-
-function! s:SelectRFunction(bound)
-  let currentline = line(".")
-  let savedpos    = getpos(".")
-  let startline   = search("\\w*\\s*<-\\s*function\\s*(.\\{-})\\s*{", "bcW")
-  let startparen  = search("{", "W")
-  let [endline, endcol] = searchpairpos("{", "", "}", "n")
-  if currentline >= startline && currentline <= endline && startline > 0
-    if a:bound ==# "i"
-      normal! va{geow
-    elseif a:bound ==# "a"
-      normal! V
-      call cursor(endline, endcol)
-    else
-      throw "wrong bound"
-    endif
-  else
-    call setpos(".", savedpos)
-  endif
-endfunction
-
-"""""""""""""""""""""""""" MOVE TO EDGE OF PARAGRAPH """""""""""""""""""""""""""
 
 " Adapted from https://vi.stackexchange.com/a/8917/307
 function! s:Move(isUp, isInVisual)
@@ -806,3 +533,8 @@ function! s:Move(isUp, isInVisual)
   end
   call setpos('.',curpos)
 endfu
+
+
+nnoremap ,H :execute "normal! I" . substitute(&commentstring, '%s', " ".repeat('=', 78), '')<cr>3\|R
+nnoremap ,h :execute "normal! I" . substitute(&commentstring, '%s', " ".repeat('-', 78), '')<cr>3\|R
+
