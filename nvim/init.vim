@@ -10,9 +10,6 @@ runtime snippets.vim
 
 call plug#begin('$XDG_DATA_HOME/nvim/plugins')
 
-" utilities
-Plug 'tpope/vim-rsi'
-
 " integration
 Plug 'tpope/vim-fugitive'
 
@@ -40,14 +37,14 @@ nmap ## <Plug>CommentaryLine
 
 " sendtowindow
 let g:sendtowindow_use_defaults = 0
-nmap <silent> gl <Plug>SendRight
-xmap <silent> gl <Plug>SendRightV
-nmap <silent> gh <Plug>SendLeft
-xmap <silent> gh <Plug>SendLeftV
-nmap <silent> gk <Plug>SendUp
-xmap <silent> gk <Plug>SendUpV
-nmap <silent> gj <Plug>SendDown
-xmap <silent> gj <Plug>SendDownV
+nmap <silent> <c-l> <Plug>SendRight
+xmap <silent> <c-l> <Plug>SendRightV
+nmap <silent> <c-h> <Plug>SendLeft
+xmap <silent> <c-h> <Plug>SendLeftV
+nmap <silent> <c-k> <Plug>SendUp
+xmap <silent> <c-k> <Plug>SendUpV
+nmap <silent> <c-j> <Plug>SendDown
+xmap <silent> <c-j> <Plug>SendDownV
 
 " lion
 let g:lion_create_maps = 0
@@ -194,7 +191,6 @@ nnoremap & :&&<cr>
 xnoremap & :&&<cr>
 
 " undo/redo
-noremap u u
 noremap U <c-r>
 
 " H K L J for moving to paragraph edge
@@ -269,6 +265,13 @@ nnoremap <space>n :keepjumps normal! *#<cr>:set hlsearch<cr>
 
 " spelling suggestions
 nnoremap <space>s z=
+
+" READLINE ---------------------------------------------------------------------
+
+" taken from tpope vim-rsi plugin
+inoremap        <C-A> <C-O>^
+cnoremap        <C-A> <Home>
+inoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\<Lt>C-E>":"\<Lt>End>"
 
 " LEADER -----------------------------------------------------------------------
 
@@ -438,7 +441,7 @@ vnoremap i? gN
 
 " COMMANDS =====================================================================
 
-" get R help
+" get r help
 command! -nargs=1 Rhelp call Rhelp(<f-args>)
 
 " scratch Buffer
@@ -461,7 +464,7 @@ augroup collumn_limit
   autocmd FileType * match CollumnLimit /\%81v./
 augroup END
 
-" Rhelp
+" r help
 augroup r_keywordprg
   autocmd!
   autocmd FileType r setlocal keywordprg=:Rhelp
@@ -535,6 +538,6 @@ function! s:Move(isUp, isInVisual)
 endfu
 
 
-nnoremap ,H :execute "normal! I" . substitute(&commentstring, '%s', " ".repeat('=', 78), '')<cr>3\|R
-nnoremap ,h :execute "normal! I" . substitute(&commentstring, '%s', " ".repeat('-', 78), '')<cr>3\|R
+nnoremap ,H :execute "normal! I" . &commentstring[0] . ' ' . repeat('=', 78)<cr>3\|R
+nnoremap ,h :execute "normal! I" . &commentstring[0] . ' ' . repeat('-', 78)<cr>3\|R
 

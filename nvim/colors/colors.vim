@@ -38,7 +38,7 @@ hi StatusLine       ctermbg=NONE ctermfg=8    cterm=NONE
 hi StatusLineNC     ctermbg=NONE ctermfg=8    cterm=NONE
 hi VertSplit        ctermbg=NONE ctermfg=8    cterm=NONE
 hi WildMenu         ctermbg=NONE ctermfg=0    cterm=REVERSE
-hi ModeMsg          ctermbg=NONE ctermfg=8    cterm=BOLD
+hi ModeMsg          ctermbg=NONE ctermfg=NONE cterm=BOLD
 
 hi DiffAdd          ctermbg=10   ctermfg=NONE cterm=NONE
 hi DiffDelete       ctermbg=9    ctermfg=9    cterm=NONE
