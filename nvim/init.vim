@@ -1,12 +1,12 @@
-" INTRO ========================================================================
+"=================================== INTRO =====================================
 
 filetype indent plugin on
 
-" SOURCE =======================================================================
+"=================================== SOURCE ====================================
 
 runtime snippets.vim
 
-" PLUGINS ======================================================================
+"================================== PLUGINS ====================================
 
 call plug#begin('$XDG_DATA_HOME/nvim/plugins')
 
@@ -14,26 +14,22 @@ call plug#begin('$XDG_DATA_HOME/nvim/plugins')
 Plug 'tpope/vim-fugitive'
 
 " operators
-Plug 'kana/vim-operator-user'
-Plug 'kana/vim-operator-replace'
 Plug 'tpope/vim-commentary'
 Plug 'machakann/vim-sandwich'
 Plug 'tommcdo/vim-lion'
 Plug 'KKPMW/vim-sendtowindow'
 
-" text objects
-Plug 'kana/vim-textobj-user'
-
 call plug#end()
 
-" PLUGIN SETTINGS ==============================================================
+"============================== PLUGIN SETTINGS ================================
 
 " commentary
 nmap gc <nop>
 xmap #  <Plug>Commentary
 nmap #  <Plug>Commentary
-omap #  <Plug>Commentary
 nmap ## <Plug>CommentaryLine
+omap i# <Plug>Commentary
+omap a# <Plug>Commentary
 
 " sendtowindow
 let g:sendtowindow_use_defaults = 0
@@ -71,12 +67,9 @@ xmap <unique> is <Plug>(textobj-sandwich-query-i)
 omap <unique> as <Plug>(textobj-sandwich-query-a)
 xmap <unique> as <Plug>(textobj-sandwich-query-a)
 
-" replace operator
-map gr <Plug>(operator-replace)
+"================================= SETTINGS ====================================
 
-" SETTINGS =====================================================================
-
-" BEHAVIOUR --------------------------------------------------------------------
+"--- behaviour -----------------------------------------------------------------
 
 set nomodeline        " disable modelines
 set comments=         " Let the filetype take care of comments
@@ -119,12 +112,10 @@ endif
 let $BASH_ENV="$XDG_CONFIG_HOME/bash/aliases" " location of bash aliases
 let g:netrw_home=$XDG_DATA_HOME.'/nvim/netrw' " change location of netrw files
 
-set wildignore+=*.RData,*.Rdata,*.RDS,*.rds        " R objects
-set wildignore+=*.pdf,*.svg,*.jpg,*.png,*.jpeg     " readables
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/* " version control
 set wildignore+=*.DS_Store                         " OSX
 
-" VISUAL -----------------------------------------------------------------------
+"--- visual --------------------------------------------------------------------
 
 syntax enable          " syntax highlighting
 colorscheme colors     " choose colorscheme
@@ -141,9 +132,9 @@ set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 set fillchars=stl:-,stlnc:-,fold:·,diff:─,vert:│
 set statusline=%=%f    " only show filename at the end of statusline
 
-" MAPS =========================================================================
+"==================================== MAPS =====================================
 
-" REMAPS -----------------------------------------------------------------------
+"--- remaps --------------------------------------------------------------------
 
 " no ex-mode
 noremap Q <nop>
@@ -229,7 +220,7 @@ inoremap <expr> <cr> pumvisible() ? "\<c-y>" : "\<cr>"
 vnoremap u <nop>
 vnoremap U <nop>
 
-" CONTROL ----------------------------------------------------------------------
+"--- control -------------------------------------------------------------------
 
 " commands that toggle settings
 
@@ -243,7 +234,7 @@ nnoremap <silent> <c-s> :set spell!<cr>
 nnoremap <silent> <c-l> :set cursorline!<cr>
 nnoremap <silent> <c-c> :set cursorcolumn!<cr>
 
-" SPACE ------------------------------------------------------------------------
+"--- space ---------------------------------------------------------------------
 
 " commands for word/line under the cursor
 
@@ -266,19 +257,19 @@ nnoremap <space>n :keepjumps normal! *#<cr>:set hlsearch<cr>
 " spelling suggestions
 nnoremap <space>s z=
 
-" READLINE ---------------------------------------------------------------------
+"--- readline ------------------------------------------------------------------
 
 " taken from tpope vim-rsi plugin
 inoremap        <C-A> <C-O>^
 cnoremap        <C-A> <Home>
 inoremap <expr> <C-E> col('.')>strlen(getline('.'))<bar><bar>pumvisible()?"\<Lt>C-E>":"\<Lt>End>"
 
-" LEADER -----------------------------------------------------------------------
+"--- leader --------------------------------------------------------------------
 
 " open r terminal
 nnoremap \|tr :keepjumps belowright 20split<cr>:terminal<space>R<space><cr><c-\><c-n><c-w>k
 
-" ALT --------------------------------------------------------------------------
+"--- alt -----------------------------------------------------------------------
 
 " working with windows
 
@@ -351,7 +342,7 @@ nnoremap <a-N> :enew!<cr>
 nnoremap <a-d> :silent! Bdelete<cr>
 nnoremap <a-D> :silent! Bdelete!<cr>
 
-" MOVEMENTS --------------------------------------------------------------------
+"--- movements -----------------------------------------------------------------
 
 " move through jump list
 noremap ]j <c-i>
@@ -391,27 +382,7 @@ noremap [q :cprevious<cr>
 noremap ]Q :clast<cr>
 noremap [Q :cfirst<cr>
 
-" TEXT OBJECTS -----------------------------------------------------------------
-
-" from kana plugin
-
-" r-code chunk
-call textobj#user#plugin('rchunk', {
-\   'code': {
-\     'pattern': ['\n```{r.*}\n', '\n```'],
-\     'select-a': 'aR',
-\     'select-i': 'iR',
-\   },
-\ })
-
-" inline r-code chunk
-call textobj#user#plugin('rinline', {
-\   'code': {
-\     'pattern': ['`r ', '`'],
-\     'select-a': 'ar',
-\     'select-i': 'ir',
-\   },
-\ })
+"--- text objects --------------------------------------------------------------
 
 " make j and k delete columns
 onoremap j <C-v>j
@@ -439,7 +410,7 @@ vnoremap a? gN
 onoremap i? gN
 vnoremap i? gN
 
-" COMMANDS =====================================================================
+"================================== COMMANDS ===================================
 
 " get r help
 command! -nargs=1 Rhelp call Rhelp(<f-args>)
@@ -451,9 +422,12 @@ command! Scratch enew | setlocal nobuflisted buftype=nofile bufhidden=wipe noswa
 command! -nargs=0 Highlight call Highlight()
 
 " diff changes with respect to original file
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
+command! DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis | wincmd p | diffthis
 
-" AUTOCOMMANDS =================================================================
+" remove trailing whitespace
+command! Trimws call Trimws()
+
+"================================ AUTOCOMMANDS =================================
 
 " collumn limit
 augroup collumn_limit
@@ -484,7 +458,7 @@ augroup restore_cursor_line
   autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 augroup END
 
-" FUNCTIONS ====================================================================
+"================================= FUNCTIONS ===================================
 
 function! Highlight()
   for id in synstack(line("."), col("."))
@@ -493,10 +467,8 @@ function! Highlight()
 endfunction
 
 function Rhelp(rfunction)
-  " if &buftype !=# "nofile"
-  "   :100vsplit
-  " endif
   enew
+  setlocal nobuflisted
   setlocal buftype=nofile
   setlocal bufhidden=delete
   setlocal noswapfile
@@ -512,7 +484,7 @@ function Rhelp(rfunction)
   " cleanup
   set ft=r
   g/\b/exec "normal! 0\"rC\<c-R>r"
-  silent StripTrailingWhitespace
+  silent Trimws
   :0d
 endfunction
 
@@ -537,7 +509,10 @@ function! s:Move(isUp, isInVisual)
   call setpos('.',curpos)
 endfu
 
-
-nnoremap ,H :execute "normal! I" . &commentstring[0] . ' ' . repeat('=', 78)<cr>3\|R
-nnoremap ,h :execute "normal! I" . &commentstring[0] . ' ' . repeat('-', 78)<cr>3\|R
+" Remove trailing whitespace
+fun! Trimws()
+  let l:save = winsaveview()
+  keeppatterns %s/\s\+$//e
+  call winrestview(l:save)
+endfun
 
