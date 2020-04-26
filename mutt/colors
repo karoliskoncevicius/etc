@@ -70,14 +70,3 @@ color quoted6 color0 color15
 color quoted7 color8 color15
 color quoted8 color0 color15
 
-# # gpg stuff
-# color body       color188 color237 "^gpg: Good signature.*"
-# color body       color115 color236 "^gpg: BAD signature.*"
-# color body       color174 color237 "^gpg: Can't check signature.*"
-# color body       color174 color237 "^-----BEGIN PGP SIGNED MESSAGE-----"
-# color body       color174 color237 "^-----BEGIN PGP SIGNATURE-----"
-# color body       color174 color237 "^-----END PGP SIGNED MESSAGE-----"
-# color body       color174 color237 "^-----END PGP SIGNATURE-----"
-# color body       color174 color237 "^Version: GnuPG.*"
-# color body       color174 color237 "^Comment: .*"
-

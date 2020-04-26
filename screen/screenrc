@@ -9,14 +9,4 @@ shelltitle local
 
 shell -$SHELL
 
-# start windows from 1 (not from 0)
-screen 1
-bind c screen 1
-bind 0 select 10
-
 escape ^@^@
-
-bind j focus down
-bind k focus up
-bind l focus right
-bind h focus left

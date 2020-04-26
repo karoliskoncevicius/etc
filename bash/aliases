@@ -1,16 +1,12 @@
-shopt -s expand_aliases
-
 alias ls='LC_ALL=C ls --group-directories-first --color=auto --time-style=+"%Y.%m.%d %H:%M:%S"'
 alias ll='LC_ALL=C ls -lh'
 
 alias grep='grep --color=auto'
 
-# mutt accounts
 alias mutt='mutt -F $XDG_CONFIG_HOME/mutt/mutt_personal'
 alias muttgmail='mutt -F $XDG_CONFIG_HOME/mutt/mutt_gmail'
 alias muttvu='mutt -F $XDG_CONFIG_HOME/mutt/mutt_vu'
 alias muttspam='mutt -F $XDG_CONFIG_HOME/mutt/mutt_spam'
 
-# make R silent on startup
 alias R='R --quiet --no-save --no-restore'
 

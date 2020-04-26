@@ -1,8 +1,4 @@
-################################################################################
-############################ ENVIRONMENT VARIABLES #############################
-################################################################################
-
-#################################### PATHS #####################################
+#--- paths ---------------------------------------------------------------------
 
 export XDG_BIN_HOME=$HOME/base/bin/
 export XDG_CONFIG_HOME=$HOME/base/etc/
@@ -26,7 +22,7 @@ MYMANPATH="$HOME/base/man"
 [ -d "/opt/local/libexec/gnubin/man" ] && MYMANPATH="$MYMANPATH:/opt/local/libexec/gnubin/man"
 export MANPATH=$MYMANPATH:$MANPATH
 
-############################## PROGRAM LOCATIONS ###############################
+#--- program locations ---------------------------------------------------------
 
 # inputrc
 export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
@@ -41,7 +37,7 @@ export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
 export R_PROFILE_USER=$XDG_CONFIG_HOME/r/Rprofile
 export R_LIBS_USER=$XDG_DATA_HOME/R/libraries/
 
-################################# PREFERENCES ##################################
+#--- preferences ---------------------------------------------------------------
 
 export EDITOR=nvim
 
