@@ -22,6 +22,6 @@ iabbrev rc,, ```{r}<CR><CR><CR><CR>```<Up><Up><Up><Up><Right><Right>
 iabbrev rp,, ```{r, include=TRUE, fig.dim=c(6,6)}<CR><CR><CR><CR>```<Up><Up><Up><Up><Right><Right>
 
 " headers
-inoreabbrev ,,H <esc>:center<cr>2hv0r=A<space><esc>40A=<esc>d80<bar>0:execute "normal! 0r" . &commentstring[0]<cr>gUgUo<esc>xo<c-r>=<sid>eatspace()<cr>
-inoreabbrev ,,h <space><esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstring[0] . "--- "<cr>guguo<esc>xo<c-r>=<sid>eatspace()<cr>
+inoreabbrev ,,H <esc>:center<cr>2hv0r=A<space><esc>40A=<esc>d80<bar>0:execute "normal! 0r" . &commentstring[0]<cr>gUgU<esc>
+inoreabbrev ,,h <space><esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstring[0] . "--- "<cr>gugu<esc>
 

@@ -15,28 +15,6 @@ function ssh() {
   echo -e '\033k'local'\033\\' >&2
 }
 
-# manual history mode
-export SAVEDHISTFILE="$XDG_CONFIG_HOME/bash/saved_history"
-hmode () {
-  local _histfile="$HISTFILE"
-  if [ "$HISTIGNORE" = "" ]; then
-    unset HISTFILE
-    history -c
-    history -r "$SAVEDHISTFILE"
-    HISTIGNORE=":*"
-    HISTFILE="$_histfile"
-  elif [ "$HISTIGNORE" = ":*" ]; then
-    unset HISTFILE
-    history -c
-    history -r "$_histfile"
-    HISTIGNORE=""
-    HISTFILE="$_histfile"
-  fi
-}
-hsave () {
-  history -p '!!' >> "$SAVEDHISTFILE"
-}
-
 # sort directories by size
 dirsize() {
   du -shx ${@:-*} | sort -k1,1h

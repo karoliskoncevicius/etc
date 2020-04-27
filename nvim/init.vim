@@ -18,6 +18,8 @@ let g:lion_squeeze_spaces = 1
 
 colorscheme colors
 
+set undofile                 " turn on persistent undo
+
 set statusline=%=%f          " statusline only shows file at right corner
 set fillchars=stl:-,stlnc:-  " statusline is always filled with dashes
 set foldcolumn=1             " some margin between edge and text
