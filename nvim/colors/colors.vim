@@ -1,3 +1,5 @@
+"--- init ----------------------------------------------------------------------
+
 hi clear
 
 if exists('syntax_on')
@@ -7,7 +9,7 @@ endif
 syntax enable
 set background=dark
 
-" colors ---------------------------------------------------------------------- 
+"--- colors --------------------------------------------------------------------
 
 hi Cursor           ctermbg=7    ctermfg=NONE cterm=NONE
 
@@ -70,7 +72,7 @@ hi TabLineFill      ctermbg=7    ctermfg=NONE cterm=NONE
 hi Error            ctermbg=NONE ctermfg=1    cterm=REVERSE
 hi Ignore           ctermbg=NONE ctermfg=NONE cterm=NONE
 
-" Clear ------------------------------------------------------------------------
+"--- clear ---------------------------------------------------------------------
 
 hi clear Number
 hi clear Character
@@ -87,7 +89,7 @@ hi clear Delimiter
 hi clear Conceal
 hi clear Directory
 
-" Links ------------------------------------------------------------------------
+"--- links ---------------------------------------------------------------------
 
 " vim
 hi link Directory  Title

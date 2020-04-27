@@ -1,9 +1,3 @@
-" function that removes the space after the execution of iabbrev
-func s:eatspace()
-  let c = nr2char(getchar(0))
-  return (c =~ '\s') ? '' : c
-endfunc
-
 " various
 iabbrev kk,, Karolis Koncevičius
 iabbrev email,, karolis@koncevicius.lt
