@@ -4,18 +4,13 @@ runtime snippets.vim
 
 "--- plugins -------------------------------------------------------------------
 
-call plug#begin('$XDG_DATA_HOME/nvim/plugins')
-
-Plug 'tpope/vim-commentary'
-Plug 'tommcdo/vim-lion'
-Plug 'KKPMW/vim-sendtowindow'
-
-call plug#end()
+set packpath=$XDG_DATA_HOME/nvim/
 
 let g:lion_squeeze_spaces = 1
 
 "--- settings ------------------------------------------------------------------
 
+syntax enable
 colorscheme colors
 
 set undofile                 " turn on persistent undo

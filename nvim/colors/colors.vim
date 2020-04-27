@@ -4,6 +4,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
+syntax enable
 set background=dark
 
 " colors ---------------------------------------------------------------------- 
