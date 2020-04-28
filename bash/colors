@@ -1,5 +1,5 @@
 # fg 333231 # foreground
-# bg f4f3f1 # background
+# bg ffffff # background
 #
 # 0  333231 # black
 # 1  dc322f # red
@@ -7,7 +7,7 @@
 # 3  e5b70a # yellow
 # 4  0096c8 # blue
 # 5  ae8fc1 # purple
-# 6  58c3b6 # cyan
+# 6  4fafa3 # cyan
 # 7  c2c1bf # white
 # 8  a9a8a7 # bright black
 # 9  f88379 # bright red

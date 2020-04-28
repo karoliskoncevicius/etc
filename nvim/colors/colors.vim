@@ -106,10 +106,10 @@ hi link markdownHeadingDelimiter Title
 hi link markdownCodeDelimiter    SpecialComment
 
 " rmarkdown
-hi link rmdCodeDelim       SpecialComment
-hi link rmdRChunkDelim     SpecialComment
-hi link rmdInlineDelim     SpecialComment
-hi link rmdYamlBlockDelim  SpecialComment
+hi link rmdCodeDelim       WarningMsg
+hi link rmdRChunkDelim     WarningMsg
+hi link rmdInlineDelim     WarningMsg
+hi link rmdYamlBlockDelim  WarningMsg
 
 hi link SpecialChar        Normal
 hi link SpecialKey         SpecialComment

@@ -55,5 +55,5 @@ tnoremap <c-w> <c-\><c-n><c-w>
 
 command! -nargs=0 Highlight for id in synstack(line("."), col(".")) | echo synIDattr(id, "name") | endfor
 command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
-command! -nargs=0 Rterm belowright 20split | terminal R --quiet --no-save --no-restore
+command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-restore
 
