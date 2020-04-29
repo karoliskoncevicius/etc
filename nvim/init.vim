@@ -6,50 +6,45 @@ runtime snippets.vim
 
 set packpath=$XDG_DATA_HOME/nvim/
 
-let g:lion_squeeze_spaces = 1
+nmap Q  <Plug>SendDown
+nmap QQ <Plug>SendDown_
+vmap Q  <Plug>SendDownV
 
 "--- settings ------------------------------------------------------------------
 
 syntax enable
 colorscheme colors
 
+set splitright splitbelow equalalways eadirection=hor  " window settings
+set shiftwidth=2 tabstop=2 expandtab                   " tab settings
+set nohlsearch nowrapscan                              " search settings
+
 set undofile                 " turn on persistent undo
+set path=.,**                " include all subdirectories in find path
 
 set statusline=%=%f          " statusline only shows file at right corner
 set fillchars=stl:-,stlnc:-  " statusline is always filled with dashes
 set foldcolumn=1             " some margin between edge and text
 
-set splitright splitbelow equalalways eadirection=hor  " window settings
-set shiftwidth=2 tabstop=2 expandtab                   " tab settings
+set list                     " display whitespace characters
+set nojoinspaces             " no double spaces when joining sentences
+set virtualedit=block        " allow going to empty space in visual column mode
 
-set list                  " display whitespace characters
-set path=.,**             " include all subdirectories in find path
-set nojoinspaces          " no double spaces when joining sentences
-set virtualedit=block     " allow going to empty space in visual column mode
-
-set completeopt+=menuone  " show completion popmenu even for single matches
-set nowrapscan            " don't continue search at the top
-set cpoptions-=_          " make cw consistent
-set inccommand=nosplit    " show visual feedback for substitution commands
+set cpoptions-=_             " make cw consistent
+set inccommand=nosplit       " show visual feedback for substitution commands
+set completeopt+=menuone     " show completion popmenu even for single matches
 
 "--- maps ----------------------------------------------------------------------
 
 noremap Y y$
 noremap U <c-r>
 
-nnoremap / :set nohlsearch <cr>/
-nnoremap ? :set nohlsearch <cr>?
-
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 nnoremap <silent> <c-s> :set spell!<cr>
 nnoremap <silent> <expr> <c-\> &colorcolumn == 0 ? ":set colorcolumn=81<cr>" : ":set colorcolumn=0<cr>"
-nnoremap <silent> <c-j> 5<c-e>
-nnoremap <silent> <c-k> 5<c-y>
 
 cnoremap <c-a> <home>
-
 tnoremap <esc> <c-\><c-n>
-tnoremap <c-w> <c-\><c-n><c-w>
 
 "--- commands ------------------------------------------------------------------
 
