@@ -23,7 +23,24 @@ shopt -s cmdhist
 # extended pattern matching (allows to use ! for negation)
 shopt -s extglob
 
+#--- readline settings ---------------------------------------------------------
+
+# completion of command from the history
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+# only necessary to press TAB once
+bind 'set show-all-if-ambiguous on'
+# when listing completions put / after directory names and * after programs
+bind 'set visible-stats on'
+# when showing completions - display only the differing part
+bind 'set completion-prefix-display-length 2'
+# do not auto-complete hidden files unless dot is specified
+bind 'set match-hidden-files off'
+
 #--- source --------------------------------------------------------------------
+
+# dircolors
+eval `dircolors $XDG_CONFIG_HOME/bash/dircolors`
 
 # completions
 if [ -f "/opt/local/etc/profile.d/bash_completion.sh" ]; then
@@ -35,9 +52,6 @@ fi
 for f in "$XDG_CONFIG_HOME/bash/completions/"*; do
    . "$f"
 done
-
-# dircolors
-eval `dircolors $XDG_CONFIG_HOME/bash/dircolors`
 
 # load prompt settings
 if [ -f "$XDG_CONFIG_HOME/bash/prompt" ]; then

@@ -24,9 +24,6 @@ export MANPATH=$MYMANPATH:$MANPATH
 
 #--- program locations ---------------------------------------------------------
 
-# inputrc
-export INPUTRC=$XDG_CONFIG_HOME/readline/inputrc
-
 # screen
 export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
 
