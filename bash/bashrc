@@ -37,6 +37,14 @@ bind 'set completion-prefix-display-length 2'
 # do not auto-complete hidden files unless dot is specified
 bind 'set match-hidden-files off'
 
+#--- aliases -------------------------------------------------------------------
+
+alias ls='LC_ALL=C ls --group-directories-first --color=auto --time-style=+"%Y.%m.%d %H:%M:%S"'
+alias ll='LC_ALL=C ls -lh'
+alias grep='grep --color=auto'
+
+alias R='R --quiet --no-save --no-restore'
+
 #--- source --------------------------------------------------------------------
 
 # dircolors
@@ -48,19 +56,10 @@ if [ -f "/opt/local/etc/profile.d/bash_completion.sh" ]; then
 elif [ -f "/etc/bash_completion.sh" ]; then
   . "/etc/bash_completion.sh"
 fi
-# custom completions
-for f in "$XDG_CONFIG_HOME/bash/completions/"*; do
-   . "$f"
-done
 
 # load prompt settings
 if [ -f "$XDG_CONFIG_HOME/bash/prompt" ]; then
   . "$XDG_CONFIG_HOME/bash/prompt"
-fi
-
-# load aliases
-if [ -f "$XDG_CONFIG_HOME/bash/aliases" ]; then
-  . "$XDG_CONFIG_HOME/bash/aliases"
 fi
 
 # load functions
