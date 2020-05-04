@@ -1,5 +1,7 @@
 "--- source --------------------------------------------------------------------
 
+filetype plugin indent on
+
 runtime snippets.vim
 
 "--- plugins -------------------------------------------------------------------
@@ -15,16 +17,13 @@ vmap Q  <Plug>SendDownV
 syntax enable
 colorscheme colors
 
-set splitright splitbelow equalalways eadirection=hor  " window settings
-set shiftwidth=2 tabstop=2 expandtab                   " tab settings
-set nohlsearch nowrapscan                              " search settings
+set statusline=%=%f foldcolumn=1 fillchars=stl:-,stlnc:-  " look and feel
+set splitright splitbelow equalalways eadirection=hor     " window settings
+set shiftwidth=2 tabstop=2 expandtab                      " tab settings
+set nohlsearch nowrapscan                                 " search settings
 
 set undofile                 " turn on persistent undo
 set path=.,**                " include all subdirectories in find path
-
-set statusline=%=%f          " statusline only shows file at right corner
-set fillchars=stl:-,stlnc:-  " statusline is always filled with dashes
-set foldcolumn=1             " some margin between edge and text
 
 set list                     " display whitespace characters
 set nojoinspaces             " no double spaces when joining sentences
