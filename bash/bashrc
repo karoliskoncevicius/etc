@@ -20,20 +20,12 @@ shopt -s histverify
 shopt -s histappend
 # save multi-line commands as one command
 shopt -s cmdhist
-# extended pattern matching (allows to use ! for negation)
-shopt -s extglob
 
 #--- readline settings ---------------------------------------------------------
 
 # completion of command from the history
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
-# only necessary to press TAB once
-bind 'set show-all-if-ambiguous on'
-# when listing completions put / after directory names and * after programs
-bind 'set visible-stats on'
-# when showing completions - display only the differing part
-bind 'set completion-prefix-display-length 2'
 # do not auto-complete hidden files unless dot is specified
 bind 'set match-hidden-files off'
 

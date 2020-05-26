@@ -20,11 +20,6 @@ dirsize() {
   du -shx ${@:-*} | sort -k1,1h
 }
 
-# grep files directly to vim
-vimgrep() {
-  nvim -q <(grep -n "$@")
-}
-
 # run an interactive job on slurm
 slurm() {
   srun -J "$1" -n 1 --pty bash -i
