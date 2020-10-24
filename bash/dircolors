@@ -220,6 +220,7 @@ STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 .HTML 00;38;5;4
 .doc  00;38;5;4
 .docx 00;38;5;4
+.rtf  00;38;5;4
 .ppt  00;38;5;4
 .pptx 00;38;5;4
 .odt  00;38;5;4
