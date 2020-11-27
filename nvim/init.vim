@@ -48,6 +48,8 @@ tnoremap <esc> <c-\><c-n>
 "--- commands ------------------------------------------------------------------
 
 command! -nargs=0 Highlight for id in synstack(line("."), col(".")) | echo synIDattr(id, "name") | endfor
-command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
 command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-restore
+command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
+command! -nargs=0 Toascii %!iconv -f utf-8 -t ascii//translit
+
 
