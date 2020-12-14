@@ -39,6 +39,9 @@ set completeopt+=menuone     " show completion popmenu even for single matches
 noremap Y y$
 noremap U <c-r>
 
+noremap <c-j> <c-d>
+noremap <c-k> <c-u>
+
 nnoremap <silent> <c-_> :set hlsearch!<cr>
 nnoremap <silent> <c-s> :set spell!<cr>
 nnoremap <silent> <expr> <c-\> &colorcolumn == 0 ? ":set colorcolumn=81<cr>" : ":set colorcolumn=0<cr>"
