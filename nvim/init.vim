@@ -55,4 +55,3 @@ command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-r
 command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
 command! -nargs=0 Toascii %!iconv -f utf-8 -t ascii//translit
 
-
