@@ -7,6 +7,8 @@
   editor = nvim
 [push]
   default = simple
+[pull]
+  rebase = false
 [alias]
   ls = log --graph --pretty=format:'%C(8)%h%Creset -%C(bold)%d%Creset %s %C(8)(%cr) %C(8)<%an>%Creset' --abbrev-commit
   freq = ! git log --all -M -C --name-only --format='format:' "$@" | sort | grep -v '^$' | uniq -c | sort -n
