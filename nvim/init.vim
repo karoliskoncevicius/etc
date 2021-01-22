@@ -8,9 +8,11 @@ runtime snippets.vim
 
 set packpath=$XDG_DATA_HOME/nvim/
 
-nmap Q  <Plug>SendDown
-nmap QQ <Plug>SendDown_
-vmap Q  <Plug>SendDownV
+nmap s  <Plug>SendDown
+nmap ss <Plug>SendDown_
+nmap S  <Plug>SendDowng_
+vmap s  <Plug>SendDownV
+vmap S  <Plug>SendDownV
 
 "--- settings ------------------------------------------------------------------
 
