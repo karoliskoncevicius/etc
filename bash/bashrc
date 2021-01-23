@@ -31,7 +31,7 @@ bind 'set match-hidden-files off'
 
 #--- aliases -------------------------------------------------------------------
 
-alias ls='LC_ALL=C ls -x --group-directories-first --color=auto --time-style=+"%Y.%m.%d %H:%M:%S" -I Applications -I Desktop -I Documents -I Downloads -I Library -I Movies -I Music -I Pictures -I Public'
+alias ls='LC_ALL=C ls --group-directories-first --color=auto --time-style=+"%Y.%m.%d %H:%M:%S" -I Applications -I Desktop -I Documents -I Downloads -I Library -I Movies -I Music -I Pictures -I Public'
 alias ll='LC_ALL=C ls -lh'
 alias grep='grep --color=auto'
 alias R='R --quiet --no-save --no-restore'
