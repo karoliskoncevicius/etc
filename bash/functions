@@ -1,11 +1,19 @@
-# do ls on cd
-cd() { builtin cd "$@" && ls; }
+# do ls on cd, got to git directory on ...
+# some things borrowed from https://github.com/egladman/dotfiles/blob/master/bash/.bashrc
+cd() {
+  case "$*" in
+    '...')
+      local dir
+      dir="$(git rev-parse --show-toplevel 2>/dev/null)"
+      if [[ $? -ne 0 ]]; then
+        printf '%s\n' "${FUNCNAME[0]}: not inside a git repository"
+        return 1
+      fi
+      set -- "$dir"
+    ;;
+  esac
 
-# go to git root directory
-cg() {
-  local dir
-  dir=$(git rev-parse --show-toplevel) || return
-  cd "$dir"
+  builtin cd "$@" && ls
 }
 
 # function to set screen name based on host and reset on exit
