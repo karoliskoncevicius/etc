@@ -1,12 +1,6 @@
 #--- paths ---------------------------------------------------------------------
 
-export XDG_BIN_HOME=$HOME/base/bin/
-export XDG_CONFIG_HOME=$HOME/base/etc/
-export XDG_DATA_HOME=$HOME/base/var/
-export XDG_LIB_HOME=$HOME/base/var/
-export XDG_CACHE_HOME=$HOME/base/var/cache
-
-MYPATH="$XDG_BIN_HOME"
+MYPATH="$HOME/.local/bin"
 [ -d "/usr/local/bin" ]                && MYPATH="$MYPATH:/usr/local/bin"
 [ -d "/usr/local/sbin" ]               && MYPATH="$MYPATH:/usr/local/sbin"
 [ -d "/opt/local/bin" ]                && MYPATH="$MYPATH:/opt/local/bin"
@@ -14,7 +8,7 @@ MYPATH="$XDG_BIN_HOME"
 [ -d "/opt/local/libexec/gnubin" ]     && MYPATH="$MYPATH:/opt/local/libexec/gnubin"
 export PATH=$MYPATH:$PATH
 
-MYMANPATH="$HOME/base/man"
+MYMANPATH="$HOME/.local/man"
 [ -d "/usr/local/share/man" ]          && MYMANPATH="$MYMANPATH:/usr/local/share/man"
 [ -d "/usr/local/man" ]                && MYMANPATH="$MYMANPATH:/usr/local/man"
 [ -d "/opt/local/man" ]                && MYMANPATH="$MYMANPATH:/opt/local/man"
@@ -25,14 +19,14 @@ export MANPATH=$MYMANPATH:$MANPATH
 #--- program locations ---------------------------------------------------------
 
 # screen
-export SCREENRC="$XDG_CONFIG_HOME"/screen/screenrc
+export SCREENRC="$HOME/.config/screen/screenrc"
 
 # pass
-export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/pass/"
+export PASSWORD_STORE_DIR="$HOME/.config/pass/"
 
 # r
-export R_PROFILE_USER=$XDG_CONFIG_HOME/r/Rprofile
-export R_LIBS_USER=$XDG_DATA_HOME/R/libraries/
+export R_PROFILE_USER="$HOME/.config/r/Rprofile"
+export R_LIBS_USER="$HOME/.local/share/r/libraries/"
 
 #--- preferences ---------------------------------------------------------------
 

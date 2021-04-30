@@ -3,13 +3,8 @@
 # if not running interactively - don't do anything
 [ -z "$PS1" ] && return
 
-# create directory for .bash_history
-mkdir -p $XDG_DATA_HOME/bash/
-
 #--- settings ------------------------------------------------------------------
 
-# bash history file
-export HISTFILE=$XDG_DATA_HOME/bash/bash_history
 # unlimited history
 HISTSIZE= HISTFILESIZE=
 # remove duplicate entries from history
@@ -41,7 +36,7 @@ export FIGNORE=Applications:Desktop:Documents:Downloads:Library:Movies:Music:Pic
 #--- source --------------------------------------------------------------------
 
 # dircolors
-eval `dircolors $XDG_CONFIG_HOME/bash/dircolors`
+eval `dircolors $HOME/.config/bash/dircolors`
 
 # completions
 if [ -f "/opt/local/etc/profile.d/bash_completion.sh" ]; then
@@ -51,12 +46,12 @@ elif [ -f "/etc/bash_completion.sh" ]; then
 fi
 
 # load prompt settings
-if [ -f "$XDG_CONFIG_HOME/bash/prompt" ]; then
-  . "$XDG_CONFIG_HOME/bash/prompt"
+if [ -f "$HOME/.config/bash/prompt" ]; then
+  . "$HOME/.config/bash/prompt"
 fi
 
 # load functions
-if [ -f "$XDG_CONFIG_HOME/bash/functions" ]; then
-  . "$XDG_CONFIG_HOME/bash/functions"
+if [ -f "$HOME/.config/bash/functions" ]; then
+  . "$HOME/.config/bash/functions"
 fi
 
