@@ -6,8 +6,6 @@ runtime snippets.vim
 
 "--- plugins -------------------------------------------------------------------
 
-set packpath=$XDG_DATA_HOME/nvim/
-
 nmap s  <Plug>SendDown
 nmap ss <Plug>SendDown_
 nmap S  <Plug>SendDowng_
