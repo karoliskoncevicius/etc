@@ -4,7 +4,7 @@ defscrollback 10000
 altscreen on
 maptimeout 5
 
-hardstatus alwayslastline "%{+r kW} %-w%{+ub}%n:%t%{-}%+w"
+hardstatus alwayslastline "%{+r kW}%{-s} %-w%{+ub}%n:%t%{-}%+w"
 shelltitle local
 
 shell -$SHELL
