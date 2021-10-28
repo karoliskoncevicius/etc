@@ -138,6 +138,7 @@ STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 .rz     00;38;5;5
 .apk    00;38;5;5
 .gem    00;38;5;5
+.zst    00;38;5;5
 
 # encrypted
 .gpg    04;38;5;0
