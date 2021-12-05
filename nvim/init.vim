@@ -30,7 +30,6 @@ set nojoinspaces             " no double spaces when joining sentences
 set virtualedit=block        " allow going to empty space in visual column mode
 
 set cpoptions-=_             " make cw consistent
-set inccommand=nosplit       " show visual feedback for substitution commands
 set completeopt+=menuone     " show completion popmenu even for single matches
 
 "--- maps ----------------------------------------------------------------------
