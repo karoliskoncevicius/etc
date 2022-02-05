@@ -299,6 +299,7 @@ STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 .json  00;38;5;6
 .bed   00;38;5;6
 .idat  00;38;5;6
+.ods   00;38;5;6
 
 # "unimportant" files
 .log        00;38;5;15
