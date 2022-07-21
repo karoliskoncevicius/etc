@@ -17,10 +17,10 @@ vmap S  <Plug>SendDownV
 syntax enable
 colorscheme colors
 
-set statusline=%=%f foldcolumn=1 fillchars=stl:-,stlnc:-  " look and feel
-set splitright splitbelow equalalways eadirection=hor     " window settings
-set shiftwidth=2 tabstop=2 expandtab                      " tab settings
-set nohlsearch nowrapscan                                 " search settings
+set laststatus=3 statusline=%=%f foldcolumn=1 fillchars=stl:-,stlnc:-  " look and feel
+set splitright splitbelow equalalways eadirection=hor                  " window settings
+set shiftwidth=2 tabstop=2 expandtab                                   " tab settings
+set nohlsearch nowrapscan                                              " search settings
 
 set undofile                 " turn on persistent undo
 set path=.,**                " include all subdirectories in find path
