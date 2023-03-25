@@ -17,6 +17,8 @@ vmap S  <Plug>SendDownV
 syntax enable
 colorscheme colors
 
+set mouse =   " turn off the mouse (<esc> becomes buggy in screen otherwise)
+
 set laststatus=3 statusline=%=%f foldcolumn=1 fillchars=stl:-,stlnc:-  " look and feel
 set splitright splitbelow equalalways eadirection=hor                  " window settings
 set shiftwidth=2 tabstop=2 expandtab                                   " tab settings
@@ -53,4 +55,9 @@ command! -nargs=0 Highlight for id in synstack(line("."), col(".")) | echo synID
 command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-restore
 command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
 command! -nargs=0 Toascii %!iconv -f utf-8 -t ascii//translit
+
+"--- automations ---------------------------------------------------------------
+
+" error when writing to a filename starting with ':' - to prevent saving ':w' files
+autocmd BufWritePre :* throw "Invalid filename"
 

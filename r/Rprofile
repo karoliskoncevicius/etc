@@ -1,20 +1,21 @@
 # set width to according to the number of columns in the terminal
-options(width=system("tput cols", intern=TRUE))
+options(width = system("tput cols", intern = TRUE))
 
 # select default mirror
-options(repos=c(CRAN="https://cloud.r-project.org/"))
+options(repos = c(CRAN = "https://cloud.r-project.org/"))
 
 # print maximum 1000 lines.
-options(max.print=1000)
+options(max.print = 1000)
 
 # no scientific notation.
-options(scipen=10)
+options(scipen = 10)
 
 # no graphics in menus.
-options(menu.graphics=FALSE)
+options(menu.graphics = FALSE)
 
 # auto-completion for package names.
-utils::rc.settings(ipck=TRUE)
+utils::rc.settings(ipck = TRUE)
 
 # x11 plot options
-grDevices::X11.options(type="Xlib", xpos=-10, ypos=10)
+options(device = "X11")
+grDevices::X11.options(type = "Xlib", width = 10, height = 10, pointsize = 14, xpos = -700, ypos = 10)

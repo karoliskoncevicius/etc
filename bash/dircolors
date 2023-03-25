@@ -324,3 +324,5 @@ STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 .class      00;38;5;15
 .cache      00;38;5;15
 
+# links and files that take you somewhere
+.url        04;38;5;2

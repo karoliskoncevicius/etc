@@ -23,6 +23,9 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 # do not auto-complete hidden files unless dot is specified
 bind 'set match-hidden-files off'
+# display completions using file-type colors
+# NOTE: not working for some reason
+# bind 'set colored-stats on'
 
 #--- aliases -------------------------------------------------------------------
 

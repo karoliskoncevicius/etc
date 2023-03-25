@@ -1,5 +1,5 @@
 # do ls on cd, go to git directory on ...
-# some things borrowed from https://github.com/egladman/dotfiles/blob/master/bash/.bashrc
+# some things borrowed from https://github.com/egladman/dotfiles/blob/master/src/bash.common.noarch/.bashrc
 cd() {
   case "$*" in
     '...')
