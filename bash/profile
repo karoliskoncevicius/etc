@@ -30,7 +30,6 @@ export R_LIBS_USER="$HOME/.local/share/r/libraries/"
 
 #--- preferences ---------------------------------------------------------------
 
-export TERM=screen-256color
 export EDITOR=nvim
 
 # locales

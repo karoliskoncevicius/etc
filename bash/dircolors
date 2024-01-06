@@ -172,6 +172,7 @@ STICKY_OTHER_WRITABLE 04;01 # directory with dwrxwrxwrx permissions + sticky
 .eps    00;38;5;3
 .CR2    00;38;5;3
 .ico    00;38;5;3
+.heic   00;38;5;3
 
 # video
 .mov    00;38;5;3

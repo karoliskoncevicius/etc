@@ -26,6 +26,7 @@ bind 'set match-hidden-files off'
 # display completions using file-type colors
 # NOTE: not working for some reason
 # bind 'set colored-stats on'
+bind 'set colored-completion-prefix on'
 
 #--- aliases -------------------------------------------------------------------
 
