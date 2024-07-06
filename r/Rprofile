@@ -1,4 +1,4 @@
-# set width to according to the number of columns in the terminal
+# set width according to the number of columns in the terminal
 options(width = system("tput cols", intern = TRUE))
 
 # select default mirror
