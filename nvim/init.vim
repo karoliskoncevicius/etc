@@ -54,7 +54,7 @@ inoreabbrev ,,h <space><esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstr
 
 "--- commands ------------------------------------------------------------------
 
-command! -nargs=0 Rterm belowright 15split | file R | terminal R --quiet --no-save --no-restore
+command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-restore
 command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
 command! -nargs=0 Toascii %!iconv -f utf-8 -t ascii//translit
 
