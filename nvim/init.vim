@@ -2,8 +2,6 @@
 
 filetype plugin indent on
 
-runtime snippets.vim
-
 "--- plugins -------------------------------------------------------------------
 
 nmap s  <Plug>SendDown
@@ -19,10 +17,10 @@ colorscheme colors
 
 set mouse =   " turn off the mouse (<esc> becomes buggy in screen otherwise)
 
-set laststatus=3 statusline=%=%f foldcolumn=1 fillchars=stl:-,stlnc:-  " look and feel
-set splitright splitbelow equalalways eadirection=hor                  " window settings
-set shiftwidth=2 tabstop=2 expandtab                                   " tab settings
-set nohlsearch nowrapscan                                              " search settings
+set laststatus=3 statusline=%=%f foldcolumn=1 noruler noshowcmd " look and feel
+set splitright splitbelow equalalways eadirection=hor           " window settings
+set shiftwidth=2 tabstop=2 expandtab                            " tab settings
+set nohlsearch nowrapscan                                       " search settings
 
 set undofile                 " turn on persistent undo
 set path=.,**                " include all subdirectories in find path
@@ -49,9 +47,14 @@ nnoremap <silent> <expr> <c-\> &colorcolumn == 0 ? ":set colorcolumn=81<cr>" : "
 cnoremap <c-a> <home>
 tnoremap <esc> <c-\><c-n>
 
+"--- abbreviations -------------------------------------------------------------
+
+" makes comment headers like the ones seen in this file
+inoreabbrev ,,h <space><esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstring[0] . "--- "<cr>gugu<esc>
+
 "--- commands ------------------------------------------------------------------
 
-command! -nargs=0 Rterm belowright 15split | terminal R --quiet --no-save --no-restore
+command! -nargs=0 Rterm belowright 15split | file R | terminal R --quiet --no-save --no-restore
 command! -nargs=0 Trimws keeppatterns %s/\s\+$//e
 command! -nargs=0 Toascii %!iconv -f utf-8 -t ascii//translit
 
