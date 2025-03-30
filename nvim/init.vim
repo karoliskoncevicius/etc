@@ -18,7 +18,7 @@ colorscheme colors
 set mouse =   " turn off the mouse (<esc> becomes buggy in screen otherwise)
 
 set laststatus=0 statusline=%= fillchars=stl:—,stlnc:—  " status line settings
-set foldcolumn=1 cmdheight=0 noruler noshowcmd          " visual settings
+set foldcolumn=1 noruler noshowcmd                      " visual settings
 set splitright splitbelow equalalways eadirection=hor   " window settings
 set shiftwidth=2 tabstop=2 expandtab                    " tab settings
 set nohlsearch nowrapscan                               " search settings

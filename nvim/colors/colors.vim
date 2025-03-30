@@ -61,6 +61,7 @@ hi SpellCap         ctermbg=NONE ctermfg=1    cterm=UNDERCURL
 hi SpellLocal       ctermbg=NONE ctermfg=9    cterm=UNDERCURL
 hi SpellRare        ctermbg=NONE ctermfg=9    cterm=UNDERCURL
 
+hi MsgArea          ctermbg=15   ctermfg=0    cterm=NONE
 hi ErrorMsg         ctermbg=NONE ctermfg=1    cterm=REVERSE
 hi WarningMsg       ctermbg=NONE ctermfg=1    cterm=NONE
 hi MoreMsg          ctermbg=NONE ctermfg=4    cterm=NONE
