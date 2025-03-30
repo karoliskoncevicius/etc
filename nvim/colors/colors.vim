@@ -39,9 +39,10 @@ hi CursorColumn     ctermbg=15   ctermfg=NONE cterm=NONE
 hi CursorLine       ctermbg=15   ctermfg=NONE cterm=NONE
 hi ColorColumn      ctermbg=15   ctermfg=NONE cterm=NONE
 
-hi StatusLine       ctermbg=NONE ctermfg=8    cterm=NONE
-hi StatusLineNC     ctermbg=NONE ctermfg=8    cterm=NONE
-hi VertSplit        ctermbg=NONE ctermfg=8    cterm=NONE
+hi StatusLine       ctermbg=NONE ctermfg=0    cterm=NONE
+hi StatusLineNC     ctermbg=NONE ctermfg=0    cterm=NONE
+hi VertSplit        ctermbg=NONE ctermfg=0    cterm=NONE
+hi WinSeparator     ctermbg=NONE ctermfg=0    cterm=NONE
 hi WildMenu         ctermbg=NONE ctermfg=0    cterm=REVERSE
 hi ModeMsg          ctermbg=NONE ctermfg=NONE cterm=BOLD
 
