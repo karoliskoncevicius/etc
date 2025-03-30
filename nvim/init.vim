@@ -50,7 +50,7 @@ tnoremap <esc> <c-\><c-n>
 "--- abbreviations -------------------------------------------------------------
 
 " makes comment headers like the ones seen in this file
-inoreabbrev ,,h <space><esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstring[0] . "--- "<cr>gugu<esc>
+inoreabbrev ### <esc>80A-<esc>d75<bar>:execute "normal! 0i" . &commentstring[0] . "--- "<cr>gugu<esc>
 
 "--- commands ------------------------------------------------------------------
 
